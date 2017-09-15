@@ -1,0 +1,28 @@
+baseurl = "https://vijayanant.github.io"
+languageCode = "en-us"
+title = "fossick"
+theme = "hyde"
+copyright = "All rights reserved"
+PygmentsCodeFences = true
+PygmentsStyle = "default"
+
+[Author]
+  name = "Vijay Anant"
+
+[Permalinks]
+  blog = "/:year/:month/:filename/"
+  code = "/:filename/"
+
+[Taxonomies]
+  tag = "tags"
+  series = "series"
+  series-desc = "series-desc"
+
+[params]
+  description = "blog by Vijay Anant"
+  twitter = "https://twitter.com/vijayanant"
+  github = "https://github.com/vijayanant"
+  #disqus = ""
+  #mainImage = "/logo.png"
+  #mainImage = "/lambda_matters_v3.png"
+
