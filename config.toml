@@ -1,4 +1,4 @@
-baseurl = "https://vijayanant.github.io"
+baseurl = ""
 languageCode = "en-us"
 title = "fossick"
 theme = "hyde"
