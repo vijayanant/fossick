@@ -10,7 +10,7 @@ PygmentsStyle = "default"
   name = "Vijay Anant"
 
 [Permalinks]
-  blog = "/:year/:month/:filename/"
+  blog = "/blog/:filename/"
   code = "/:filename/"
 
 [Taxonomies]
@@ -22,7 +22,7 @@ PygmentsStyle = "default"
   description = "blog by Vijay Anant"
   twitter = "https://twitter.com/vijayanant"
   github = "https://github.com/vijayanant"
-  #disqus = ""
+  disqus = "vijayanant"
   #mainImage = "/logo.png"
   #mainImage = "/lambda_matters_v3.png"
 
