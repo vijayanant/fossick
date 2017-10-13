@@ -22,7 +22,7 @@ PygmentsStyle = "default"
   description = "blog by Vijay Anant"
   twitter = "https://twitter.com/vijayanant"
   github = "https://github.com/vijayanant"
-  disqus = "vijayanant"
+  disqus = "fossickio"
   #mainImage = "/logo.png"
   #mainImage = "/lambda_matters_v3.png"
 
