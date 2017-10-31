@@ -4,7 +4,6 @@ date = "2017-10-02"
 title = "Lambda Calculus"
 +++
 
-## Introduction
 The [models of computation](https://en.wikipedia.org/wiki/Model_of_computation)
 can be broadly classified into two groups - those that are based on _machine 
 model_ and the λ Calculus. 
@@ -52,7 +51,7 @@ parameters in each case.
 A λ function is such an abstraction which has the form:
 
 ```
-λ<variable>.<lambda term>                    ---- refer to the grammer above
+λ<variable>.<lambda term>    -- refer to the grammer above
 ```
 
 λ-calculus embodies a kind of function definition (and application) that is the
@@ -64,11 +63,48 @@ by a function is another function.
 (λx.∗ 3 x) 4
 ```
 
-## Conventions
+### Conventions
 Here are important conventions:
 
 * Function application is left associative, i.e. `f g h = ((f g) h) `
 * Consecutive abstractions can be un-curried, i.e. `λx y z. t = λx. λy. λz. t`
+
+## Free and bound variables
+In λ-calculus all names are local to definitions (like in most programming
+languages). In the function λx.x we say that x is "bound" since its occurrence
+in the body of the definition is preceded by λx. A name not preceded by a λ 
+is called a "free variable." 
+
+In the expression 
+```
+(λx.x) (λy.y x)
+```
+the `x` in the body of the first expression from the left is bound to the first
+λ. The `y` in the body of the second expression is bound to the second λ, and
+the following `x` is free.
+
+## Beta Reduction
+In its pure form, the lambda-calculus has no built-in constants or primitive
+operators—no numbers, arithmetic operations, conditionals, records, loops,
+sequencing, I/O, etc. The sole means by which terms "compute" is the application
+of functions to arguments (which themselves are functions). Each step in the 
+computation consists of rewriting an application whose left-hand component is
+an abstraction, by substituting the right-hand component for the bound variable
+in the abstraction's body.
+
+Following Church, a term of the form `(λx.t1)t2` is called a _redex_ ("reducible
+expression”), and the operation of rewriting a redex according to the above
+rule is called beta-reduction.
+
+* **Full Beta Reduction**: Any redex may be reduced at any time. At each step
+  we pick some redex, anywhere inside the term we are evaluating, and reduce it
+* **Normal Order Beta Reduction**: The leftmost, outermost redex is always 
+  reduced first.
+* **Call By Name Beta Reduction**: This is more restrictive form of normal order
+  reduction, allowing no reductions inside abstractions.
+* **Call By Value Beta Reduction**: Only outermost redexes are reduced and where
+  a redex is reduced only when its right-hand side has already been reduced
+  to a value.
 
 ## Boolean Definitions
 ```
@@ -140,8 +176,11 @@ snd p = p fls
 
 ## Church Numerals
 * For representing numbers by lambda-terms
-* A number _n_ is represented by a combinator (one, two, three, etc. below) that takes two arguments, _s_ and _z_, and applies _s_, _n_ times, to _z_.
-* As with booleans and pairs, this encoding makes numbers into active entities: the number n is represented by a function that does something _n_ times — a kind of active unary numeral.
+* A number _n_ is represented by a combinator (one, two, three, etc. below)
+  that takes two arguments, _s_ and _z_, and applies _s_, _n_ times, to _z_.
+* As with booleans and pairs, this encoding makes numbers into active entities:
+  the number n is represented by a function that does something _n_ times — a 
+  kind of active unary numeral.
 
 ```
 zero  = λs. λz. z;            -- applies s to z zero times
