@@ -67,21 +67,8 @@ by a function is another function.
 ## Conventions
 Here are important conventions:
 
-* The common convention is that function application is left associative, i.e.
-
-```
-f g h = ((f g) h)
-```
-* Consecutive abstractions can be un-curried, i.e.
-
-```
-λx y z. t =λx.λy.λz. t
-```
-* The body of the abstraction extends to the right as far as possible:
-
-```
-  λx. t1 t2 = λx. (t1 t2)
-```
+* Function application is left associative, i.e. `f g h = ((f g) h) `
+* Consecutive abstractions can be un-curried, i.e. `λx y z. t = λx. λy. λz. t`
 
 ## Boolean Definitions
 ```
