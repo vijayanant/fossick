@@ -1,13 +1,33 @@
 +++
 type = "post"
 date = "2017-10-02"
-title = "Lambda Calculus - Church Numerals and Basic Operations"
+title = "Lambda Calculus"
 +++
 
-My notes on Lambda Calculus.
-
 ## Introduction
-The syntax of the _lambda-calculus_ comprises just three sorts of _terms_.
+The [models of computation](https://en.wikipedia.org/wiki/Model_of_computation)
+can be broadly classified into two groups - those that are based on _machine 
+model_ and the λ Calculus. 
+
+Machine models are based on the idea of a program acting on data by
+modification. So a [Turing Machine](https://en.wikipedia.org/wiki/Turing_machine)
+consists of a program acting on the data. There is a clear distinction between
+program and data. Programs are not data and data do not contain programs ('first
+order'). The machine based languages are inherently imperative.
+
+λ-calculus is a formal system invented in the 1930s by __Alonzo Church__, in
+which all computation is reduced to the basic operations of function definition
+and application. There is no separation of program from data; the λ calculus
+is inherently "higher order".
+
+λ calculus is different from machine models because it is based on the 
+mathematical concept of a variable (which is not at all related to the concept 
+of a "variable", a misnomer for "assignables" in machine models). λ-calculus
+emphasizes the use of symbolic transformation rules and does not care about the
+actual machine implementation.
+
+## Grammar
+The syntax of the λ-calculus comprises just three sorts of _terms_.
 
 * A variable `x` by itself is a term;
 * The abstraction of a variable `x` from a term `t1`, written `λx.t1`, is a term;
@@ -15,7 +35,6 @@ The syntax of the _lambda-calculus_ comprises just three sorts of _terms_.
 
 These ways of forming terms are summarized in the following grammar.
 
-## Grammar
 ```
 t ::=      -- Terms
   x        -- Variable
@@ -23,7 +42,48 @@ t ::=      -- Terms
   t t      -- Application
 ```
 
-## Boolean definnitions
+## Abstraction and Application
+Abstraction is a key feature of essentially all programming languages. Instead
+of writing the same calculation over and over, we write a function that
+performs the calculation generically, in terms of one or more named parameters,
+and then instantiate this function as needed, providing values for the
+parameters in each case.
+
+A λ function is such an abstraction which has the form:
+
+```
+λ<variable>.<lambda term>                    ---- refer to the grammer above
+```
+
+λ-calculus embodies a kind of function definition (and application) that is the
+purest possible form. In the lambda-calculus everything is a function: the
+arguments accepted by functions are themselves functions and the result returned
+by a function is another function.
+
+```
+(λx.∗ 3 x) 4
+```
+
+## Conventions
+Here are important conventions:
+
+* The common convention is that function application is left associative, i.e.
+
+```
+f g h = ((f g) h)
+```
+* Consecutive abstractions can be un-curried, i.e.
+
+```
+λx y z. t =λx.λy.λz. t
+```
+* The body of the abstraction extends to the right as far as possible:
+
+```
+  λx. t1 t2 = λx. (t1 t2)
+```
+
+## Boolean Definitions
 ```
 tru = λt. λf. t;
 fls = λt. λf. f;
@@ -55,13 +115,13 @@ test fls "a" "b" -- "b"
  → v
 ```
 
-## Logincal op
+## Logical Ops
 `and = λb. λc.b c fls;`
 
 ```Haskell
-and' p q = p q fls   -- if p then q   else fls
-or'  p q = p tru q   -- if p then tru else q
-not' p   = p fls tru -- if p then fls else tru
+and1 p q = p q fls   -- if p then q   else fls
+or1  p q = p tru q   -- if p then tru else q
+not1 p   = p fls tru -- if p then fls else tru
 ```
 
 ## Pairs
@@ -201,5 +261,4 @@ zz = pair zero zero
 ss  = λp. pair (snd p) (plus one (snd p));
 prd = λm. fst (m ss zz);
 ```
-
 
