@@ -10,7 +10,7 @@ PygmentsStyle = "default"
   name = "Vijay Anant"
 
 [Permalinks]
-  blog = "/blog/:filename/"
+  blog = "/blog/:title/"
   code = "/:filename/"
 
 [Taxonomies]
