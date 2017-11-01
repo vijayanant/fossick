@@ -24,5 +24,4 @@ PygmentsStyle = "default"
   github = "https://github.com/vijayanant"
   disqus = "fossickio"
   #mainImage = "/logo.png"
-  #mainImage = "/lambda_matters_v3.png"
-
+  googleAnalytics = "UA-58152749-1"
