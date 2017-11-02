@@ -2,7 +2,7 @@
 type = "post"
 title =  "Performance Analysis In Python"
 date = "2014-11-02 20:05:36"
-tags = [ "python", "performance", "analysis" ]
+keywords = [ "python", "performance analysis", "analysis" ]
 +++
 
 

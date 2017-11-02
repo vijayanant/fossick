@@ -2,8 +2,9 @@
 type = "post"
 title = "Thinking in Imperative, Object Oriented and Functional way"
 date = "2017-09-15T14:42:26+05:30"
-tags = ["programming"]
+keywords = ["programming", "Imperative", "OOP", "Object Oriented", "Functional" ]
 draft = false
+description = "programming paradigms stem from different concepts about how the world works. They represent different opinions about how to best model the world while we are writing programs."
 +++
 
 Complexity is the root cause of majority of software problems. Unreliable softwares are known to be notoriously complex. A complex system is hard to understand and reason about. The harder a system is to understand the more likely we are to introduce more complexity.  Complex code base is not only harder to test but testing is that much less effective.

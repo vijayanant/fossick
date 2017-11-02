@@ -2,6 +2,16 @@
 type = "post"
 date = "2017-10-02"
 title = "Lambda Calculus"
+keywords = [
+  "Lambda",
+  "Lambda-Calculus",
+  "Functional Programming",
+  "Church Numerals",
+  "Beta Reduction",
+  "Call By Name",
+  "Call By Value"
+]
+description = "Introduction to Lambda-Calculus and Church Numerals"
 +++
 
 The [models of computation](https://en.wikipedia.org/wiki/Model_of_computation)

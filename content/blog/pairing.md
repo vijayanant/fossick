@@ -2,11 +2,12 @@
 type = "post"
 title = "Pair Programming - What? Why? And How?"
 date =   "2015-01-31 12:31:30"
-categories=  ["pair programming", "XP"]
+keywords =  ["pair programming", "XP", "code pairing", "extreme programming"]
 +++
 
 ### What?
-Simply put, pair programming is two programmers working at a single computer!
+Simply put, pair programming is two programmers with a single computer working
+together to solve a problem!
 
 ### Why?
 

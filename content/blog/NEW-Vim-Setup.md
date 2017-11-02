@@ -1,8 +1,8 @@
 +++
 type =  "post"
-title= "10 Must Have Vim Plugins"
+title= "10 Vim Plugins That Made My Vim Easy "
 date =   "2015-01-04 09:18:06"
-tags = [ "vim", "plugin" ]
+keywords = [ "vim", "plugin" ]
 +++
 
 Few days back I posted the below pic online and some of my friends wanted to know how I got there. I am no vim expert and there are myriad of other (possibly better) ways of doing things. So I will just list the plugins I have used in my setup. 
