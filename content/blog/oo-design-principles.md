@@ -1,7 +1,6 @@
 +++
 type = "post"
 date = "2016-10-23"
-draft = true
 title = "OO(h!) Principles"
 keywords = [  
   "Object orientation",
