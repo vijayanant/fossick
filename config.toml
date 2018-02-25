@@ -3,8 +3,8 @@ languageCode = "en-us"
 title = "fossick"
 theme = "hyde"
 copyright = "All rights reserved"
+PygmentsStyle = "monokai"
 PygmentsCodeFences = true
-PygmentsStyle = "default"
 
 [Author]
   name = "Vijay Anant"
