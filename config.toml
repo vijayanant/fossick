@@ -1,27 +1,51 @@
 baseurl = "https://vijayanant.github.io/"
 languageCode = "en-us"
 title = "fossick"
-theme = "hyde"
-copyright = "All rights reserved"
-PygmentsStyle = "monokai"
-PygmentsCodeFences = true
+#theme = "hyde-hyde"
 
-[Author]
-  name = "Vijay Anant"
+## Hugo Built-in Features
+disqusShortname = "fossickio"
+googleAnalytics = "UA-58152749-1"
+# enableRobotsTXT = true
 
-[Permalinks]
-  blog = "/blog/:title/"
-  code = "/:filename/"
 
-[Taxonomies]
-  tag = "tags"
-  series = "series"
-  series-desc = "series-desc"
 
+## Site Settings
 [params]
-  description = "blog by Vijay Anant"
-  twitter = "https://twitter.com/vijayanant"
-  github = "https://github.com/vijayanant"
-  disqus = "fossickio"
-  #mainImage = "/logo.png"
-  googleAnalytics = "UA-58152749-1"
+    author = "Vijay Anant"
+    title = "title goes here"
+    description = "blog by Vijay Anant"
+    #authorimage = "/author.png"
+    dateformat = "Jan 1, 2001"
+    highlightjs = true
+    highlightjsstyle = "zenburn"
+    postNavigation = false
+    #copyright = "All Rights Reserved"
+
+## Social Accounts
+[params.social]
+    email = "vijay.hassan@gmail.com"
+    github = "vijayanant"
+    linkedin = "vijayanant"
+    twitter = "vijayanant"
+    #instagram = "<username>"
+    #xing = "<username>"
+    #facebook = "<username>"
+    #stackoverflow = "<username>"
+
+## Main Menu
+[[menu.main]]
+    name = "Posts"
+    weight = 100
+    identifier = "posts"
+    url = "/posts/"
+#[[menu.main]]
+    #name = "Portfolio"
+    #identifier = "portfolio"
+    #weight = 200
+    #url = "/portfolio/"
+#[[menu.main]]
+    #name = "About"
+    #identifier = "about"
+    #weight = 300
+    #url = "/about/"

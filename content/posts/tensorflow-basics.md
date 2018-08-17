@@ -7,7 +7,6 @@ keywords = [
   "machine learning",
   "deep learning"
 ]
-series = ["tensorflow-101"]
 +++
 
 TensorFlow is Google's open source library for numerical computation. All computations are represented as __Data Flow Graphs__. The Nodes in the graph represent operations and Edges represent the data-communication between nodes.   
