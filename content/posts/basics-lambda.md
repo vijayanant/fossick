@@ -1,6 +1,6 @@
 +++
 type = "post"
-date = "2017-10-02"
+date = "2018-02-25"
 title = "Lambda Calculus"
 keywords = [
   "Lambda",

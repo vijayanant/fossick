@@ -1,6 +1,7 @@
 +++
 date = 2014-07-28T11:14:25Z
 title = "About"
+type = "about"
 
 [menu.main]
   weight = 1

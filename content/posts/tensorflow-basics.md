@@ -1,6 +1,6 @@
 +++
 type = "post"
-date = "2018-02-25"
+date = "2017-10-02"
 title = "TensorFlow Basics"
 keywords = [ 
   "tensorflow",
