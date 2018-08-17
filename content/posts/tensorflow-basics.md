@@ -79,7 +79,7 @@ Operations are the nodes in the graph that consume and/or produce Tensors.
 [op.name for op in g.get_operations()]
 ```
 
-`
+```python
 ['random_uniform/shape',
  'random_uniform/min',
  'random_uniform/max',
@@ -87,7 +87,7 @@ Operations are the nodes in the graph that consume and/or produce Tensors.
  'random_uniform/sub',
  'random_uniform/mul',
  'random_uniform']
-`
+```
 
 ### Variables
 Variables are stateful nodes which output their current value. State is retained across multiple executions of a graph. A variable holds a  value, which can be a Tensor of any type and shape. The type and shape of the variable are fixed at initialization time. The value can be changed using one of the assign methods.

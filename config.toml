@@ -16,7 +16,6 @@ googleAnalytics = "UA-58152749-1"
     title = "title goes here"
     description = "blog by Vijay Anant"
     #authorimage = "/author.png"
-    dateformat = "Jan 1, 2001"
     highlightjs = true
     highlightjsstyle = "zenburn"
     postNavigation = false

@@ -1,7 +1,7 @@
 +++
 type = "post"
 title = "Thinking in Imperative, Object Oriented and Functional way"
-date = "2017-09-15T14:42:26+05:30"
+date = 2017-09-15
 keywords = ["programming", "Imperative", "OOP", "Object Oriented", "Functional" ]
 draft = false
 description = "programming paradigms stem from different concepts about how the world works. They represent different opinions about how to best model the world while we are writing programs."
@@ -60,7 +60,8 @@ By encapsulating data and operations that can be performed on that data, into a 
 
 In pure OO style, the control structures like the conditionals and loops become messages themselves.
 
-```Smalltalk
+<!--```Smalltalk-->
+```
 result := List new.
 employees each: [:e |
   e rating greaterThan: 7 ifTrue: [result add (e name upper)]]
@@ -74,7 +75,7 @@ Notice that, even though we can now deal with state updates in isolation, object
 
 [Functional Programming](https://en.wikipedia.org/wiki/Functional_programming) is based on the mathematical concept of a function. In mathematics there is no notion of updating a variable/state. Functional programming, thus, removes the whole 'update the shared state' business. Functions are the building blocks in FP. Functions take arguments and compute a result based on the inputs provided. Control flow is expressed by combining functions ([function composition](https://en.wikipedia.org/wiki/Function_composition)).
 
-```Haskell
+```
 sort ( map (toUpperCase . name) ( filter (\e -> rating e > 7) employees))
 ```
 
