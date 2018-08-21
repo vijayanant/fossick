@@ -1,5 +1,10 @@
-
-# Microservice Architecture with Docker
++++
+type = "post"
+date = 2018-08-17
+title = "Microservice Architecture"
+category = ["Architecture"]
+draft = true
++++
 
 Microservice architecture is a good solution for companies trying to maximize their resources, both human and machine, to develop clean, maintainable, scalable, available code. In order to take advantage of this architecture, we must first comprehend it, and then learn how to master it. Microservice Architecture is a solid, modern architecture and Docker is the best way to get started with this architecture.
 
