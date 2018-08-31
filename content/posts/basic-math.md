@@ -2,13 +2,14 @@
 type = "post"
 date = "2017-11-04"
 title = "Notes on Sets, Relations, and Functions"
-keywords = [ 
+tags = [ 
       "Maths",
       "Sets",
       "Relations",
       "Functions",
       "Ordered Sets"
 ]
+categories = [ "Maths" ]
 description = "Basic maths - Sets, Relations, and Functions"
 +++
 ### Standard notation for sets

@@ -2,14 +2,18 @@
 type = "post"
 date = "2018-02-25"
 title = "Lambda Calculus"
-keywords = [
+tags = [
   "Lambda",
-  "Lambda-Calculus",
+  "Lambda Calculus",
   "Functional Programming",
   "Church Numerals",
   "Beta Reduction",
   "Call By Name",
   "Call By Value"
+]
+categories = [ 
+  "Programming",
+  "Maths"
 ]
 description = "Introduction to Lambda-Calculus and Church Numerals"
 +++
@@ -234,7 +238,9 @@ scc one
 ### Addition
 Addition of Church numerals can be performed by a term _plus_ that takes two Church numerals, _m_ and _n_, as arguments, and yields another Church numeral—i.e., a function—that accepts arguments _s_ and _z_, applies _s_ iterated _n_ times to _z_ (by passing _s_ and _z_ as arguments to _n_), and then applies _s_ iterated _m_ more times to the result:
 
-```plus = λm. λn. λs. λz. m s (n s z);```
+```
+plus = λm. λn. λs. λz. m s (n s z);
+```
 
 We can also think of addition in terms of successor (or increment) function.
 ```Haskell

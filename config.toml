@@ -6,8 +6,17 @@ theme = "hyde-hyde"
 ## Hugo Built-in Features
 disqusShortname = "fossickio"
 googleAnalytics = "UA-58152749-1"
-# enableRobotsTXT = true
+enableRobotsTXT = true
 
+# Built-in highlighting
+# https://gohugo.io/content-management/syntax-highlighting
+pygmentsCodeFences = true
+#pygmentsStyle = "friendly"
+pygmentsStyle = "monokai"
+#pygmentsStyle = "default"
+#pygmentsUseClasses = true     # this overrides 'PygmentsStyle'
+#http://pygments.org
+pygmentsUseClassic = true     # falling back to Pygments instead of Chroma
 
 
 ## Site Settings
@@ -16,8 +25,11 @@ googleAnalytics = "UA-58152749-1"
     title = "title goes here"
     description = "blog by Vijay Anant"
     #authorimage = "/author.png"
-    highlightjs = true
-    highlightjsstyle = "zenburn"
+    
+    #highlightjs = true
+    #highlightjsstyle = "default"
+    #highlightjsstyle = "github"
+    #highlightjsstyle = "zenburn"
     postNavigation = false
     relatedPosts = true
     #copyright = "All Rights Reserved"
@@ -33,6 +45,9 @@ googleAnalytics = "UA-58152749-1"
     #facebook = "<username>"
     #stackoverflow = "<username>"
 
+[params.meta]
+    description = "blog by Vijay Anant:: technology, thoughts, opinions, and rants"
+    keywords = "blog, thoughts, programming"
 ## Main Menu
 [[menu.main]]
     name = "Posts"

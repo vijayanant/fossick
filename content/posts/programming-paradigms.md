@@ -60,14 +60,15 @@ By encapsulating data and operations that can be performed on that data, into a 
 
 In pure OO style, the control structures like the conditionals and loops become messages themselves.
 
-<!--```Smalltalk-->
-```
+
+```Smalltalk
 result := List new.
 employees each: [:e |
-  e rating greaterThan: 7 ifTrue: [result add (e name upper)]]
+  e rating greaterThan: 7 ifTrue: [result add (e name upper)]]
 result sort.
 ^result
 ```
+
 
 Notice that, even though we can now deal with state updates in isolation, objects need to collaborate among themselves to be useful. That happens by the way of message passing. As the number of objects (classes of objects) increases the communication between them also increases and needs to be dealt with carefully.
 
@@ -75,7 +76,8 @@ Notice that, even though we can now deal with state updates in isolation, object
 
 [Functional Programming](https://en.wikipedia.org/wiki/Functional_programming) is based on the mathematical concept of a function. In mathematics there is no notion of updating a variable/state. Functional programming, thus, removes the whole 'update the shared state' business. Functions are the building blocks in FP. Functions take arguments and compute a result based on the inputs provided. Control flow is expressed by combining functions ([function composition](https://en.wikipedia.org/wiki/Function_composition)).
 
-```
+```Haskell
+data SumType = SA | SB
 sort ( map (toUpperCase . name) ( filter (\e -> rating e > 7) employees))
 ```
 
