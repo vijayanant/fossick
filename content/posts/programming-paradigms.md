@@ -77,7 +77,6 @@ Notice that, even though we can now deal with state updates in isolation, object
 [Functional Programming](https://en.wikipedia.org/wiki/Functional_programming) is based on the mathematical concept of a function. In mathematics there is no notion of updating a variable/state. Functional programming, thus, removes the whole 'update the shared state' business. Functions are the building blocks in FP. Functions take arguments and compute a result based on the inputs provided. Control flow is expressed by combining functions ([function composition](https://en.wikipedia.org/wiki/Function_composition)).
 
 ```Haskell
-data SumType = SA | SB
 sort ( map (toUpperCase . name) ( filter (\e -> rating e > 7) employees))
 ```
 

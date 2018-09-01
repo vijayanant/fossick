@@ -11,8 +11,9 @@ enableRobotsTXT = true
 # Built-in highlighting
 # https://gohugo.io/content-management/syntax-highlighting
 pygmentsCodeFences = true
+#pygmentsStyle = "github"
 #pygmentsStyle = "friendly"
-pygmentsStyle = "monokai"
+#pygmentsStyle = "monokai"
 #pygmentsStyle = "default"
 #pygmentsUseClasses = true     # this overrides 'PygmentsStyle'
 #http://pygments.org
