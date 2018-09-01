@@ -2,7 +2,8 @@
 type = "post"
 title = "Pair Programming - What? Why? And How?"
 date =   "2015-01-31 12:31:30"
-keywords =  ["pair programming", "XP", "code pairing", "extreme programming"]
+tags =  ["pair programming", "XP", "code pairing", "extreme programming"]
+categories = ["programming", "Rant"]
 +++
 
 ### What?
@@ -31,5 +32,3 @@ together to solve a problem!
 * Let-go/grab the keyboard when required
 * Let go of your ego, be humble
 * Enjoy coding
-
-

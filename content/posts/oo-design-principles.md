@@ -2,7 +2,8 @@
 type = "post"
 date = "2016-10-23"
 title = "OO(h!) Principles"
-keywords = [  
+description = "An (incomplete) list of principles of OO software development"
+tags = [  
   "Object orientation",
   "Design Principles",
   "Software Design",
@@ -10,7 +11,7 @@ keywords = [
   "SOLID",
   "Packaging"
 ]
-description = "An (incomplete) list of principles of OO software development"
+categories = ["Programming", "Object Orientation", "Software Design"]
 +++
 
 There is a good chance that you all are aware of the SOLID principles. There are many more principles for us to consider and adhere to while developing OO software.

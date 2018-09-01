@@ -3,7 +3,8 @@ type = "post"
 title = "Duplication Vs Abstraction"
 date = "2016-07-05"
 draft = false
-keywords = ["Abstraction", "Refactoring", "Code Duplication" ]
+tags = ["Abstraction", "Refactoring", "Code Duplication" ]
+categories = ["Programming", "Wisdom"]
 +++
 When you see code duplication and can't think of an abstraction to put that
 piece of code in, it is wise to keep the code separate. At least until you

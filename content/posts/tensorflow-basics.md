@@ -2,11 +2,12 @@
 type = "post"
 date = "2017-10-02"
 title = "TensorFlow Basics"
-keywords = [ 
+tags = [ 
   "tensorflow",
   "machine learning",
   "deep learning"
 ]
+categories = ["Programming"]
 +++
 
 TensorFlow is Google's open source library for numerical computation. All computations are represented as __Data Flow Graphs__. The Nodes in the graph represent operations and Edges represent the data-communication between nodes.   

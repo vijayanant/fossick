@@ -2,12 +2,13 @@
 type = "post"
 date = "2018-02-12"
 title = "Outward Counterclockwise Spiral Matrix Traversal - haskell"
-keywords = [ 
+tags = [ 
   "haskell",
   "matrix traversal",
   "coding",
   "puzzle"
 ]
+categories = ["Programming"]
 +++
 
 ## Problem

@@ -3,7 +3,8 @@ type = "post"
 title = "A Detour Called Monads"
 date = "2016-08-15"
 draft = false
-keywords = ["functional programming", "monads", "programming", "fallacy"]
+tags = ["functional programming", "monads", "programming", "fallacy"]
+categories = ["Rant", "Programming"]
 +++
 
 When learning Haskell, all of us are faced with this monad monster. I too have spent many days and night fighting it -  hoping that it will grant me all the wisdom if I survive long enough. I have come to believe that the community as whole has created this monstor. And many of us have taken this detour to master the art of monstor slaying instead of going on ahead - just to realise later that the detour was unnesessory. Pocket knife is all that was needed.

@@ -3,7 +3,8 @@ type = "post"
 title = "Decisions"
 date = "2016-08-15"
 draft = false
-keywords = ["Decision", "Happy", "Life Lessons"]
+tags = ["Decision", "Happy", "Life Lessons"]
+categories = ["Rant", "Wisdom"]
 description ="We all make decisions. We should make decisions to be happy" 
 +++
 
