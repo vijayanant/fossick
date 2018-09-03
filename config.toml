@@ -26,6 +26,7 @@ pygmentsUseClassic = true     # falling back to Pygments instead of Chroma
     title = "title goes here"
     description = "blog by Vijay Anant"
     authorimage = "/author.png"
+    googlefonts = "//fonts.googleapis.com/css?family=Muli"
     
     #highlightjs = true
     #highlightjsstyle = "default"
