@@ -6,7 +6,7 @@ theme = "hyde-hyde"
 ## Hugo Built-in Features
 disqusShortname = "fossickio"
 googleAnalytics = "UA-58152749-1"
-enableRobotsTXT = true
+enableRobotsTXT = false
 
 # Built-in highlighting
 # https://gohugo.io/content-management/syntax-highlighting
@@ -53,7 +53,7 @@ pygmentsUseClassic = true     # falling back to Pygments instead of Chroma
 ## Main Menu
 [[menu.main]]
     name = "Posts"
-    weight = 100
+    weight = 1
     identifier = "posts"
     url = "/posts/"
 #[[menu.main]]
@@ -64,7 +64,7 @@ pygmentsUseClassic = true     # falling back to Pygments instead of Chroma
 #[[menu.main]]
     #name = "About"
     #identifier = "about"
-    #weight = 300
+    #weight = 2
     #url = "/about/"
 
 # https://gohugo.io/content-management/related

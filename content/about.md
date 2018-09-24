@@ -4,7 +4,7 @@ title = "About"
 type = "about"
 
 [menu.main]
-  weight = 1
+  weight = 2
 +++
 
 Human. Programmer.
