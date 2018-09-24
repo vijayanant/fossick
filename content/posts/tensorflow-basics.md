@@ -8,6 +8,7 @@ tags = [
   "deep learning"
 ]
 categories = ["Programming"]
+description = "TensorFlow is Google's open source library for numerical computation. All computations are represented as Data Flow Graphs. The Nodes in the graph represent operations and Edges represent the data-communication between nodes."
 +++
 
 TensorFlow is Google's open source library for numerical computation. All computations are represented as __Data Flow Graphs__. The Nodes in the graph represent operations and Edges represent the data-communication between nodes.   
@@ -25,7 +26,7 @@ What do you think the above code prints?
 
 `Tensor("random_uniform:0", shape=(10,), dtype=float32)`
 
-`x` is a Tensor. Remember that everyting in tensorflow is graph made of nodes and edges. The call to `tf.random_uniform()` returns a `Tensor`. 
+`x` is a Tensor. Remember that everytihing in tensorflow is graph made of nodes and edges. The call to `tf.random_uniform()` returns a `Tensor`. 
 
 ### Tensor 
 A tensor is what is passed between nodes (edge). It represents the (input and) output of an Operation (node). A tensor does not hold the values of the operation's output, but instead provides a means of computing those values in a Session.

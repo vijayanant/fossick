@@ -1,7 +1,7 @@
 +++
 type = "post"
 date = "2018-02-12"
-title = "Outward Counterclockwise Spiral Matrix Traversal - haskell"
+title = "Outward Counterclockwise Spiral Matrix Traversal - Haskell"
 tags = [ 
   "haskell",
   "matrix traversal",
@@ -9,6 +9,7 @@ tags = [
   "puzzle"
 ]
 categories = ["Programming"]
+description = "An efficient, lazy implementation of spiral traversal on a matrix in Haskell." 
 +++
 
 ## Problem

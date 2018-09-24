@@ -48,7 +48,7 @@ The syntax of the λ-calculus comprises just three sorts of _terms_.
 
 These ways of forming terms are summarized in the following grammar.
 
-```
+```haskell
 t ::=      -- Terms
   x        -- Variable
   λx. t    -- Abstraction
@@ -64,8 +64,8 @@ parameters in each case.
 
 A λ function is such an abstraction which has the form:
 
-```
-λ<variable>.<lambda term>    -- refer to the grammer above
+```Haskell
+λ<variable>.<lambda term>    -- refer to the grammar above
 ```
 
 λ-calculus embodies a kind of function definition (and application) that is the
@@ -73,9 +73,13 @@ purest possible form. In the lambda-calculus everything is a function: the
 arguments accepted by functions are themselves functions and the result returned
 by a function is another function.
 
+```Haskell
+(λx. f x) 4
 ```
-(λx.∗ 3 x) 4
-```
+
+In the above example we define a function that applies the given
+parameter (x here) to a previously defined function `f`. The value `4` is then
+applied to this newly defined function.
 
 ### Conventions
 Here are important conventions:
@@ -90,7 +94,7 @@ in the body of the definition is preceded by λx. A name not preceded by a λ
 is called a "free variable." 
 
 In the expression 
-```
+```Haskell
 (λx.x) (λy.y x)
 ```
 the `x` in the body of the first expression from the left is bound to the first
@@ -104,7 +108,7 @@ sequencing, I/O, etc. The sole means by which terms "compute" is the application
 of functions to arguments (which themselves are functions). Each step in the 
 computation consists of rewriting an application whose left-hand component is
 an abstraction, by substituting the right-hand component for the bound variable
-in the abstraction's body.
+in the abstraction' s body.
 
 Following Church, a term of the form `(λx.t1)t2` is called a _redex_ ("reducible
 expression”), and the operation of rewriting a redex according to the above
@@ -121,7 +125,7 @@ rule is called beta-reduction.
   to a value.
 
 ## Boolean Definitions
-```
+```Haskell
 tru = λt. λf. t;
 fls = λt. λf. f;
 ```
@@ -141,7 +145,7 @@ test fls "a" "b" -- "b"
 ```
 
 ### Reducing Test term
-```
+```Haskell
  test tru v w
  = (λl.λm.λn.l m n) tru v w         by definition
  → (λm.λn.tru m n) v w
@@ -162,7 +166,7 @@ not1 p   = p fls tru -- if p then fls else tru
 ```
 
 ## Pairs
-```
+```Haskell
 pair = λf.λs.λb. b f s;
 fst = λp. p tru;
 snd = λp. p fls;
@@ -177,7 +181,7 @@ snd p = p fls
 ```
 
 ### Reducing fst
-```
+```Haskell
   fst (pair v w)
 = fst ((λf.λs.λb.b f s) v w)
 → fst ((λs.λb.b v s) w)
@@ -196,7 +200,7 @@ snd p = p fls
   the number n is represented by a function that does something _n_ times — a 
   kind of active unary numeral.
 
-```
+```Haskell
 zero  = λs. λz. z;            -- applies s to z zero times
 one   = λs. λz. s z;          -- applies s to z once
 two   = λs. λz. s (s z);      -- applies s twice
@@ -207,7 +211,7 @@ etc.                          -- and so on...
 ### Successor
 Remember, a Church numeral _n_ is a function that applies _s_ to _z_  (n times).
 
-```
+```Haskell
 scc = λn. λs. λz. s (n s z); -- Successor function
 ```
 The term _scc_ is a combinator that takes a Church numeral n and returns another Church numeral—that is, it yields a function that takes arguments _s_ and _z_ and applies _s_ repeatedly to _z_. We get the right number of applications of _s_ to _z_ by first passing _s_ and _z_ as arguments to _n_, and then explicitly applying _s_ one more time to the result.
@@ -218,14 +222,15 @@ scc' n s = s . n s
 ```
 We can think of _successor_ function in two ways. One way, as defined above, is _applying s one more time to given number_. Another way is _to add given number _n_ to _one_._ Second approach is given below:
 
-```
+```Haskell
 scc = λn. λs. λz. n s (s z)
 ```
+
 ```Haskell
 scc  n s z = n s (s z)
 ```
 Let us see if _scc one_ is actually _two_:
-```
+```Haskell
 scc one
 = scc (λs. λz. s z)                       -- by definition of one
 = (λn. λs. λz. n s (s z)) (λs. λz. s z)   -- by definition of scc
@@ -238,7 +243,7 @@ scc one
 ### Addition
 Addition of Church numerals can be performed by a term _plus_ that takes two Church numerals, _m_ and _n_, as arguments, and yields another Church numeral—i.e., a function—that accepts arguments _s_ and _z_, applies _s_ iterated _n_ times to _z_ (by passing _s_ and _z_ as arguments to _n_), and then applies _s_ iterated _m_ more times to the result:
 
-```
+```Haskell
 plus = λm. λn. λs. λz. m s (n s z);
 ```
 
@@ -258,7 +263,7 @@ four  = add two two
 ### Multiplication
 Multiplying n and m is adding together _m_ copies of _n_. Notice that, `plus m` adds _m_ to any given number. If we apply `add m` _n_ times to _zero_, we will have added _n_ copies of _m_.
 
-```
+```Haskell
 times = λm. λn. m (plus n) zero;
 ```
 Intuitively, having a `s.s.s. ... s` of length _m_, in order to multiply it by _n_, we should combine _n_ copies of such a chain. Or, if (m s) is a "super-successor" containing _m_ exemplars of _s_, what we need is
@@ -273,14 +278,14 @@ __Multiplication is functional composition!__
 
 ### Exponentiation
 `pow n m` means _n_ raised to _m_-th power. Or, `n * n *.....* n`- multiplying _n_ by itself _m_ times.
-```
+```Haskell
 pow n m
  = (mul n ( ... (mul n (mul n one))))  -- m times
  = m (mul n) one
 ```
 
 We know that in the theory of sets, for any sets _A_ and _B_, the notation _B^A_ denotes the set of all functions from _A_ to _B_. Typically one applies the argument based on cardinality. Adding one element to _A_, permits to find _|B|_ more mappings, from the additional element to all of _B_. So, the number of mappings is multiplied by _|B|_, in agreement with : ___B^A+1 = B^A * B___. 
-```
+```Haskell
 pow n m = m n
 ```
 __exponentiation = inverse application__.
@@ -292,13 +297,13 @@ Remember zero is a function that applies _s_ to _z_ zero times - `zero = λs. λ
 
 That is, we need _ss_ and _zz_ such that _zero ss zz_ is _tru_ and _fls_ for any other numeeral.
 
-```
+```Haskell
 iszro = λm. m (λx. fls) tru;
 ```
 ### Predecessor
 Predecessor function is tricky! We begin with zero, and keep counting until _n_, but storing the previous number. Then when we get _n_, the previous one is its predecessor. We use __Pairs__, defined earlier, to keep two previous numbers.
 
-```
+```Haskell
 zz = pair zero zero
 ss  = λp. pair (snd p) (plus one (snd p));
 prd = λm. fst (m ss zz);
