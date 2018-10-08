@@ -4,7 +4,7 @@ date = "2018-10-08"
 title = "Distributed Systems and Scalable Databases"
 categories = ["Distributed Systems"]
 tags = ["scaling", "storage", "databases"]
-description = "Introduction to distributed systems. How distributed databases work and their scaling model. We will also talk about different consistency models that arise as a result."
+description = "Introduction to distributed systems. How distributed databases work and their scaling model."
 draft = false
 +++
 
