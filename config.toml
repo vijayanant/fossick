@@ -24,7 +24,7 @@ pygmentsUseClassic = true     # falling back to Pygments instead of Chroma
 [params]
     author = "Vijay Anant"
     title = "title goes here"
-    description = "blog by Vijay Anant"
+    description = "Vijay Anant"
     authorimage = "/author.png"
     googlefonts = "//fonts.googleapis.com/css?family=Muli"
     
@@ -48,8 +48,8 @@ pygmentsUseClassic = true     # falling back to Pygments instead of Chroma
     #stackoverflow = "<username>"
 
 [params.meta]
-    description = "blog by Vijay Anant:: technology, thoughts, opinions, and rants"
-    keywords = "blog, thoughts, programming"
+    description = "blog by Vijay Anant :: technology, thoughts, opinions, and rants"
+    keywords = "thoughts, programming, technology"
 ## Main Menu
 [[menu.main]]
     name = "Posts"
