@@ -1,6 +1,5 @@
 baseurl = "https://vijayanant.github.io/"
 languageCode = "en-us"
-title = "fossick"
 theme = "hyde-hyde"
 
 ## Hugo Built-in Features
@@ -22,8 +21,8 @@ pygmentsUseClassic = true     # falling back to Pygments instead of Chroma
 
 ## Site Settings
 [params]
+    title = "fossick"
     author = "Vijay Anant"
-    title = "title goes here"
     description = "Vijay Anant"
     authorimage = "/author.png"
     googlefonts = "//fonts.googleapis.com/css?family=Muli"
