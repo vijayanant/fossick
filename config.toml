@@ -18,6 +18,8 @@ pygmentsCodeFences = true
 #http://pygments.org
 pygmentsUseClassic = true     # falling back to Pygments instead of Chroma
 
+[permalinks]
+  posts = "/:section/:slug/"
 
 ## Site Settings
 [params]
