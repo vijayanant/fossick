@@ -1,5 +1,5 @@
 +++
-title       = "GADTs in Haskell"
+title       = "GADTs To Eliminate Runtime Checks"
 date        = 2016-10-15
 type        = "post"
 categories  = ["Programming", "Types"]
