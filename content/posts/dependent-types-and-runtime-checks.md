@@ -4,9 +4,20 @@ date        = 2018-10-26
 type        = "post"
 categories  = ["Types", "Programming"]
 tags        = ["Haskell", "Dependent Types"]
-description = ""
+description = """
+One of the main advantages of static typing is to catch errors before we deploy
+code to production. Dependent Types allow us to eliminate some checks that are
+usually done at rum time. I take a simple example to show how dependent types
+can be used in that regard in day-to-day programming.
+"""
 draft       = false
 +++
+
+One of the main advantages of static typing is to catch errors before we deploy
+code to production. Dependent Types allow us to eliminate some checks that are
+usually done at rum time. I take a simple example to show how dependent types
+can be used in that regard in day-to-day programming.
+
 ### Give Me The Money!
 
 Let us start with an example. We will define a simple type for representing
@@ -31,11 +42,10 @@ total = add money1 money2
 ### Everything OK There?
 
 There is something we have missed here. The currency. Money is represented in
-some currency (like Indian Rupee or US Dollar) and we cannot add money in
-different currencies. 
+some currency (like US Dollar) and we cannot add money in different currencies. 
 
 Lets include currency information in our `Money` type. A simple approach is to
-keep string representing the currency ("INR", "USD", etc.) along with the amount.
+keep string representing the currency ("GBP", "USD", etc.) along with the amount.
 
 ```Haskell
 data Money = Money String Rational
@@ -44,7 +54,7 @@ add:: Money -> Money -> Money
 ```
 
 ###  Houston, We've Got a Problem
-Here is the concern. We now have to check if the two money arguments to add are
+Here is the concern. We now have to check if the two money parameters to add are
 of same currency. Well, we can do that by comparing the two strings representing
 the currency. Or by pattern matching for all possible currency! What do we do if
 they don't match? Now we are having to deal with error scenarios. A simple
@@ -69,8 +79,8 @@ import Data.Ratio ((%))
 
 data Money (currency :: Symbol) = Money Rational
 
-fiftyPaise :: Money "INR"
-fiftyPaise = Money (50 % 100)
+fiftyPence :: Money "GBP"
+fiftyPence = Money (50 % 100)
 
 twoDollars :: Money "USD"
 twoDollars = Money 2
@@ -80,17 +90,17 @@ add (Money m1) (Money m2) = Money (m1 + m2)
 ```
 
 ```Haskell
-λ> :t add fiftyPaise fiftyPaise
-add fiftyPaise fiftyPaise :: Money "INR"
+λ> :t add fiftyPence fiftyPence
+add fiftyPence fiftyPence :: Money "GBP"
 
-λ> :t add fiftyPaise twoDollars
+λ> :t add fiftyPence twoDollars
 
 <interactive>:1:16: error:
-    • Couldn't match type ‘"USD"’ with ‘"INR"’
-      Expected type: Money "INR"
+    • Couldn't match type ‘"USD"’ with ‘"GBP"’
+      Expected type: Money "GBP"
         Actual type: Money "USD"
     • In the second argument of ‘add’, namely ‘twoDollars’
-      In the expression: add fiftyPaise twoDollars
+      In the expression: add fiftyPence twoDollars
 ```
 
 We use language extensions in GHC for using dependent types. I will try to
@@ -98,17 +108,17 @@ explain their usage in simple terms.
 
 ### Be Kind To Others
 
-Notice the type of `fiftyPaise` -
+Notice the type of `fiftyPence` -
 
 ```Haskell 
-fiftyPaise :: Money "INR"
+fiftyPence :: Money "GBP"
 ```
 
 `Money` is a type constructor and only accepts other types as parameters (`Maybe
-Int`, `[Int]` etc.). But, `"INR"` seems like a String value! How is this
+Int`, `[Int]` etc.). But, `"GBP"` seems like a String value! How is this
 possible? 
 
-Firstly, `"INR"` in `Money "INR"` is not a value but a type with kind `Symbol`.
+Firstly, `"GBP"` in `Money "GBP"` is not a value but a type with kind `Symbol`.
 You can see that in the data definition of Money. `currency` type parameter is
 of kind `Symbol`. 
 
@@ -117,7 +127,7 @@ data Money (currency :: Symbol) = Money Rational
 ```
 
 `Symbol` is a convenient Kind provided by GHC in the `GHC.TypeLits` module which
-is the kind for type-level strings. It lets us use string literals like "INR" as
+is the kind for type-level strings. It lets us use string literals like "GBP" as
 a type.
 
 >You know that we can manually specify a variable's type. Similarly, we can also
@@ -127,11 +137,11 @@ a type.
 ## Congratulations! You have Been Promoted
 
 So, Ok, KindSignatures extension lets me specify that `currency` has kind
-`Symbol`, but how does `"INR"` and `"USD"` become types of of kind `Symbol`?  
+`Symbol`, but how does `"GBP"` and `"USD"` become types of of kind `Symbol`?  
 
 ```Haskell
-fiftyPaise :: Money "INR"
-fiftyPaise = Money (50 % 100)
+fiftyPence :: Money "GBP"
+fiftyPence = Money (50 % 100)
 
 twoDollars :: Money "USD"
 twoDollars = Money 2
@@ -142,18 +152,17 @@ this extension is enabled, the type constructors are promoted to Kinds and value
 constructors are promoted to type constructors.
 
 In our case, the kind `Symbol` is already provided by GHC. All we need is for
-GHC to promote and recognize "`INR`" as type.
+GHC to promote and recognize "`GBP`" as type.
 
 ```Haskell
-λ> :k Money "INR"
+λ> :k Money "GBP"
 
 <interactive>:1:7: error:
-    Illegal type: ‘"INR"’ Perhaps you intended to use DataKinds
+    Illegal type: ‘"GBP"’ Perhaps you intended to use DataKinds
 
 λ> :set -XDataKinds
-λ> :k Money "INR"
-Money "INR" :: *
-
+λ> :k Money "GBP"
+Money "GBP" :: *
 
 λ> :k Money Int
 
@@ -163,12 +172,12 @@ Money "INR" :: *
       In the type ‘Money Int’
 ```
 
-> The promoted types, `"INR"` and `"USD"` in the above example, have no
+> The promoted types, `"GBP"` and `"USD"` in the above example, have no
 > inhabitants.
 
->Also, promoted types are prefixed with a quote (`'"INR"` and `'"USD"`) but they
+>Also, promoted types are prefixed with a quote (`'"GBP"` and `'"USD"`) but they
 >can almost always be ignored as the context of their usage makes it clear which
->one we meant - the type "INR" or the string value "INR".
+>one we meant - the type "GBP" or the string value "GBP".
 
 ## The Beginning
 There is much more to depended types than what we have seen here. This is to

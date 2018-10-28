@@ -4,7 +4,13 @@ date        = 2016-10-15
 type        = "post"
 categories  = ["Programming", "Types"]
 tags        = ["Haskell", "GADTs"]
-description = "Generalized algebraic data types (GADTs) generalizes ordinary algebraic data types by permitting value constructors to return specific types. GADTs are used for ensuring program correctness and in generic programming. This article is specific to Haskell programming language. In Haskell GADTs are implemented as a language extension. The article describes these use cases with small programs."
+description = """
+GADTs generalizes ordinary algebraic data types by permitting value constructors
+to return specific types. GADTs are used for ensuring program correctness and in
+generic programming. This article is specific to Haskell programming language.
+In Haskell GADTs are implemented as a language extension. The article describes
+these use cases with small programs.
+"""
 draft       = false
 +++
 
