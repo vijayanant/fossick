@@ -19,20 +19,22 @@ a language extension. The article describes these use cases with small programs.
 Type system help programmers ensure that the software they write behave
 correctly. They detect errors and also serve as documentation. A good type
 system allow abstracting domain specific concepts. Haskell’s much appreciated
-Algebraic Data Type (ADT) though powerful, is still lacking in few aspects.
-GADTs fill that gap. This article explains GADTs with simple examples.
+_Algebraic Data Type (ADT)_ though powerful, is still lacking in few aspects.
+GADTs fill that gap. 
+
+This article explains GADTs with simple examples.
 
 ## Algebraic Data Types (ADTs)
 ADTs are composite types, i.e., types formed by combining other types. Depending
-on how the types are combined, we can have either a sum type or a product type.
+on how the types are combined, we can have either a _sum_ type or a _product_ type.
 
 ```Haskell
 data Point = Pt Int Int
 data Expr a = Number Integer | Boolean Bool
 ```
 
-In the example above `Point` and `Expr` are called type constructors and `Pt`,
-`Number`, and `Boolean` are called value constructors. If a type has more than
+In the example above `Point` and `Expr` are called _type constructors_ and `Pt`,
+`Number`, and `Boolean` are called _value constructors_. If a type has more than
 one value constructor, they are called alternatives: one can use any of these
 alternatives to create a value of that type.
 
@@ -84,11 +86,11 @@ If you notice carefully, this allows for some invalid expressions to type check
 successfully.
 
 ```Haskell
-expr1 = Succ (Number 1)          -- type checks and valid
-expr2 = Succ (IsZero (Number 1)) -- type checks but invalid
+expr1 = Succ (Number 1)          -- valid and type checks
+expr2 = Succ (IsZero (Number 1)) -- invalid but type checks
 ```
 
-Also, notice how our `eval` function is partially implemented. We do not know
+Also, notice how our `eval` function is _partially_ implemented. We do not know
 what to evaluate a expression `Succ (IsZero (Number 1))` to. We could allow the
 function to indicate error by using a `Maybe` or `Either` type, but that
 complicates the `eval` function further as we recursively call `eval`. Try it
@@ -96,7 +98,7 @@ out for fun.
 
 ## Generalised ADTs
 The idea behind GADTs is to allow arbitrary return types for value constructors.
-They generalize ordinary data types. GADTs are provided in GHC as a language
+They _generalize_ ordinary data types. GADTs are provided in GHC as a language
 extension. We can enable this feature using the `LANGUAGE` pragma. It provides a
 new syntax for defining data types. We specify type for each value constructor.
 We can now redefine our `Expr` type like below:
