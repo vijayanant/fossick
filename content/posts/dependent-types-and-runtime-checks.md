@@ -5,7 +5,7 @@ type        = "post"
 categories  = ["Types", "Programming"]
 tags        = ["Haskell", "Dependent Types"]
 description = ""
-draft       = true
+draft       = false
 +++
 ### Give Me The Money!
 
