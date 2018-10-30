@@ -3,7 +3,7 @@ title       = "GADTs To Eliminate Runtime Checks"
 date        = 2016-10-15
 type        = "post"
 categories  = ["Programming", "Types"]
-tags        = ["Haskell", "GADTs"]
+tags        = ["fp", "Haskell", "GADTs"]
 description = """
 GADTs generalizes ordinary algebraic data types by permitting value constructors
 to return specific types. GADTs are used for ensuring program correctness and in
@@ -14,8 +14,8 @@ these use cases with small programs.
 draft       = false
 +++
 
-Generalized Algebraic Data Types (GADTs) generalizes ordinary algebraic data
-types by permitting value constructors to return specific types. GADTs are used
+_Generalized Algebraic Data Types (GADTs)_ generalizes ordinary _Algebraic Data
+Types(ADTs)_ by permitting value constructors to return specific types. GADTs are used
 for ensuring program correctness and in generic programming. This article is
 specific to Haskell programming language. In Haskell GADTs are implemented as
 a language extension. The article describes these use cases with small programs.
@@ -25,8 +25,7 @@ a language extension. The article describes these use cases with small programs.
 Type system help programmers ensure that the software they write behave
 correctly. They detect errors and also serve as documentation. A good type
 system allow abstracting domain specific concepts. Haskell’s much appreciated
-_Algebraic Data Type (ADT)_ though powerful, is still lacking in few aspects.
-GADTs fill that gap. 
+ADTs though powerful, is still lacking in few aspects. GADTs fill that gap. 
 
 This article explains GADTs with simple examples.
 

@@ -2,7 +2,7 @@
 type = "post"
 title = "Understanding Monads Using Function Composition"
 date =  "2016-05-20 20:20:45"
-tags =  ["functional", "programming", "monads", "haskell", "composition"]
+tags =  ["fp", "monads", "composition"]
 categories = ["Programming", "Haskell"]
 +++
 

@@ -3,7 +3,7 @@ title       = "Dependent Types To Eliminate Runtime Checks"
 date        = 2018-10-26
 type        = "post"
 categories  = ["Types", "Programming"]
-tags        = ["Haskell", "Dependent Types"]
+tags        = ["fp", "Haskell", "Dependent Types"]
 description = """
 One of the main advantages of static typing is to catch errors before we deploy
 code to production. Dependent Types allow us to eliminate some checks that are

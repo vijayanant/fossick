@@ -3,9 +3,9 @@ type = "post"
 date = "2018-02-25"
 title = "Lambda Calculus"
 tags = [
+  "fp",
   "Lambda",
   "Lambda Calculus",
-  "Functional Programming",
   "Church Numerals",
   "Beta Reduction",
   "Call By Name",
