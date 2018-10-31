@@ -28,7 +28,7 @@ pygmentsUseClassic = true     # falling back to Pygments instead of Chroma
     description = "Vijay Anant"
     authorimage = "/author.png"
     googlefonts = "//fonts.googleapis.com/css?family=Muli"
-    
+    dateformat = "02 Jan 2006"
     #highlightjs = true
     #highlightjsstyle = "default"
     #highlightjsstyle = "github"
