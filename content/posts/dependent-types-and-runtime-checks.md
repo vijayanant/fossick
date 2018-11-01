@@ -88,8 +88,8 @@ not defined.
 
 Wrapping the return type with `Maybe` or `Either e` are common approaches to
 extending the function. A special value of `Nothing::Maybe Money` (or `Left
-"Incompatible Currency"::Either String Money`) can be returned for all the inputs where `add`
-is originally not defined.
+"Incompatible Currency"::Either String Money`) can be returned for all the
+inputs where `add` is originally not defined.
 
 A simple addition function now has to deal with error cases. If we decide to
 indicate an error using `Maybe Money` or `Either Error Money` as return type,
@@ -138,7 +138,7 @@ add (Money m1) (Money m2) = Money (m1 + m2)
 
 Notice how the implementation of `add` function is same as the one before
 introducing `currency` parameter. It has no if/case expressions and no `Maybe`
-return type. It is an compilation error to add `Money` values with different
+return type. It is a compilation error to add `Money` values with different
 currency. 
 
 ```Haskell
