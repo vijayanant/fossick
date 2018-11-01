@@ -87,8 +87,8 @@ specific value (an _error_ value) for all those inputs for which the function is
 not defined.
 
 Wrapping the return type with `Maybe` or `Either e` are common approaches to
-extending the function. A special value of `Nothing::Money` (or `Left
-"Incompatible Currency"::Money`) can be returned for all the inputs where `add`
+extending the function. A special value of `Nothing::Maybe Money` (or `Left
+"Incompatible Currency"::Either String Money`) can be returned for all the inputs where `add`
 is originally not defined.
 
 A simple addition function now has to deal with error cases. If we decide to
