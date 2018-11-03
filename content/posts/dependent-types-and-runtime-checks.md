@@ -13,8 +13,10 @@ can be used in that regard in day-to-day programming.
 draft       = false
 +++
 
-One of the main advantages of _static typing_ is to catch errors before we
-deploy code to production. __Dependent Types__ allow us to eliminate some checks
+One of the main advantages of [static type checking]
+(https://en.wikipedia.org/wiki/Type_system#Static_type_checking) is to catch
+errors before we deploy code to production.  [Dependent Types]
+(https://en.wikipedia.org/wiki/Dependent_type) allow us to eliminate some checks
 that are usually done at run time. I take a simple example to show how dependent
 types can be used in that regard in day-to-day programming.
 
@@ -58,7 +60,7 @@ twoDollars = Money "USD" 2
 
 ###  Houston, We've Got a Problem
 The constraint that only `Money` values with same `currency` can be added makes
-our `add` function _partial_.
+our `add` function [partial](https://en.wikipedia.org/wiki/Partial_function).
 
 ```Haskell
 add:: Money -> Money -> Money
