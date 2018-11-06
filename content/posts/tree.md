@@ -17,13 +17,13 @@ slightly more complicated, yet commonly known, example to demonstrate what I
 claimed. This is an attempt at that. And turning it into a blog post makes it
 available for me all the time (and for other too!!).
 
-I do not claim mastery over either of these languages. If you have any
-suggestions on making any of the these implementations more expressive, let me
-know and I will update the sample accordingly. Other languages are welcome too!
+I do not claim mastery over any of these languages. If you have any suggestions
+on making any of the these implementations more expressive, let me know and I
+will update the sample accordingly. Other languages are welcome too!
 
-All three versions does the same thing. Define a simple `Tree` type. Instead of
+All three versions do the same thing. Define a simple `Tree` type. Instead of
 constructing the tree one-element-at-a-time, we provide a convenient function
-`fromList` which takes a list and adds it elements to tree. We also provide a
+`fromList` which takes a list and adds its elements to tree. We also provide a
 way to turn the `Tree` back to a list by providing `inorder` function to
 traverse the tree in-order.
 
