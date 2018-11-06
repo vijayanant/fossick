@@ -7,7 +7,6 @@ categories  = ["Programming"]
 tags        = ["Haskell", "Python", "Java", "Binary Tree"]
 description = """Demonstrate the expressiveness of Haskell using a  simple
 Binary Tree and in-order traversal in Haskell, Python and Java""" 
-draft       = true 
 +++
 
 My goto answer when someone asks why I like [Haskell] (https://www.haskell.org)
