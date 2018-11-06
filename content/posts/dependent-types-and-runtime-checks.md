@@ -20,7 +20,7 @@ errors before we deploy code to production.  [Dependent Types]
 that are usually done at run time. I take a simple example to show how dependent
 types can be used in that regard in day-to-day programming.
 
-### Give Me The Money!
+## Give Me The Money!
 
 Let us start with an example. We will define a simple type for representing
 money and a function to add money.
@@ -41,7 +41,7 @@ money2 = Money (25 % 100)
 total = add money1 money2
 ```
 
-### Everything OK There?
+## Everything OK There?
 
 There is something we have missed here. The currency. Money is represented in
 some _currency_ (like US Dollar) and we cannot add money in different
@@ -58,7 +58,7 @@ twoDollars :: Money
 twoDollars = Money "USD" 2
 ```
 
-###  Houston, We've Got a Problem
+##  Houston, We've Got a Problem
 The constraint that only `Money` values with same `currency` can be added makes
 our `add` function [partial](https://en.wikipedia.org/wiki/Partial_function).
 
@@ -106,7 +106,7 @@ add   (Money c1 m1) (Money c2 m2) =
           False -> Nothing
 ```
 
-### Independence? Freedom? What?
+## Independence? Freedom? What?
 Using dependent types we can avoid the runtime check by making it possible for
 the compiler to do that check for us. Since the compiler prohibits calling our
 `add` function with incompatible money values, we are not only freed from
@@ -160,7 +160,7 @@ add fiftyPence fiftyPence :: Money "GBP"
 We use _language extensions_ in GHC for using dependent types. I will try to
 explain their usage in simple terms.
 
-### Be Kind To Others
+## Be Kind To Others
 
 Notice the type of `fiftyPence` -
 
