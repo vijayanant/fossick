@@ -5,7 +5,7 @@ type        = "post"
 categories  = ["Programming", "Languages"]
 tags        = ["expressiveness", ]
 description = "What is expressiveness of a language?"
-draft       = true
+draft       = false
 myref       = "https://sites.google.com/site/steveyegge2/is-weak-typing-strong-enough"
 +++
 
