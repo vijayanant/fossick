@@ -14,18 +14,24 @@ so much these days is usually _"I like the expressiveness and run time
 guarantees of Haskell"._ For those who are little more interested, I would
 usually show the popular quick sort or merge sort implementations. I wanted a
 slightly more complicated, yet commonly known, example to demonstrate what I
-claimed. This is an attempt at that. And turning it into a blog post makes it
-available for me all the time (and for other too!!).
+claimed. This is an attempt at coming up with such an example.   And turning it
+into a blog post makes it available for me all the time (and for other too!!).
 
-I do not claim mastery over any of these languages. If you have any suggestions
-on making any of the these implementations more expressive, let me know and I
-will update the sample accordingly. Other languages are welcome too!
+I choose Python and Java as other two languages as they are the ones I am fairly
+comfortable with and also because they are representatives of objected oriented
+and dynamically typed languages. I do not claim mastery over any of these
+languages. If you have any suggestions on making any of the these
+implementations more expressive, let me know and I will update the sample
+accordingly. Other languages are welcome too!
+
+>  Edit: [Here] ({{< ref "/posts/expressiveness.md" >}}) is my take on what
+>  expressiveness mean
 
 All three versions do the same thing. Define a simple `Tree` type. Instead of
 constructing the tree one-element-at-a-time, we provide a convenient function
 `fromList` which takes a list and adds its elements to tree. We also provide a
 way to turn the `Tree` back to a list by providing `inorder` function to
-traverse the tree in-order.
+[traverse the tree in-order](https://en.wikipedia.org/wiki/Tree_traversal)
 
 The tree construction happens like this: we split the list in to three parts -
 middle element, left-sublist and right-sublist. Then, we recursively construct
