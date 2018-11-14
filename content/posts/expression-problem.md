@@ -41,17 +41,21 @@ In Object Oriented Programming, it is easy to add new datatypes by defining new
 code needs to be modified. However, adding new functions (operations) over the
 datatype is hard. All the datatypes have to be modified and recompiled.
 
+Below is a java version explaining the problem. If you want to add new operation
+on the expressions (say, to type-check), you will have to add the new operation
+to each object type (Literal and Add) forcing a recompilation of these classes.
+
+{{< gist vijayanant  231b2470b98a92d38d54c7b982ab6503 "ExpressonProblem.java">}}
+
 [Visitor design pattern] (https://en.wikipedia.org/wiki/Visitor_pattern) in OO
 programming is a known solution to cases where new operations are added over
 existing type (hierarchy). However, by using this pattern we will restrict our
 ability to add new types. Adding new (element) class (to the hierarchy) forces
 changes to all the visitor classes and needs recompilation.
 
-Below is a java version explaining the problem. If you want to add new operation
-on the expressions (say, to type-check), you will have to add the new operation
-to each object type (Literal and Add) forcing a recompilation of these classes.
+<!--The extended Visitor pattern does offer a solution but at the cost of little-->
+<!--type safety as this approach makes use of dynamic type casts.-->
 
-{{< gist vijayanant  231b2470b98a92d38d54c7b982ab6503 "ExpressonProblem.java">}}
 
 ## Functional Programming
 In functional programming, we think of functions that operate on values of
@@ -71,7 +75,7 @@ typeclass.
 
 {{< gist vijayanant  231b2470b98a92d38d54c7b982ab6503 "ExpressionProblem.hs">}}
 
-In the _functional pearl_ [Data types  la carte]
+In the _functional pearl_ [Data types a la carte]
 (http://www.cs.ru.nl/~W.Swierstra/Publications/DataTypesALaCarte.pdf),  _Wouter
 Swierstra_ proposes a solution to the expression problem. Philip Wadler himself
 calls this the [best solution in Haskell]
