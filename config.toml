@@ -9,14 +9,14 @@ enableRobotsTXT = false
 
 # Built-in highlighting
 # https://gohugo.io/content-management/syntax-highlighting
-#pygmentsCodeFences = true
+pygmentsCodeFences = true
 #pygmentsStyle = "github"
 #pygmentsStyle = "friendly"
 #pygmentsStyle = "monokai"
 #pygmentsStyle = "default"
 #pygmentsUseClasses = true     # this overrides 'PygmentsStyle'
 #http://pygments.org
-#pygmentsUseClassic = true     # falling back to Pygments instead of Chroma
+pygmentsUseClassic = true     # falling back to Pygments instead of Chroma
 
 [permalinks]
   posts = "/:section/:slug/"
@@ -29,9 +29,9 @@ enableRobotsTXT = false
     authorimage = "/author.png"
     googlefonts = "//fonts.googleapis.com/css?family=Muli"
     dateformat = "02 Jan 2006"
-    highlightjs = true
+    #highlightjs = true
     #highlightjsstyle = "default"
-    highlightjsstyle = "github"
+    #highlightjsstyle = "github"
     #highlightjsstyle = "zenburn"
     postNavigation = false
     relatedPosts = true
