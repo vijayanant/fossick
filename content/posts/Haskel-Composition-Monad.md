@@ -4,6 +4,7 @@ title = "Understanding Monads Using Function Composition"
 date =  "2016-05-20 20:20:45"
 tags =  ["fp", "monads", "composition"]
 categories = ["Programming", "Haskell"]
+draft = true
 +++
 
 Today I am going to commit a crime - I am about to write one more blog relating to Monads!
