@@ -1,4 +1,4 @@
-baseurl = "https://vijayanant.github.io/"
+baseurl = "https://vijayanant.github.io"
 languageCode = "en-us"
 theme = "hyde-hyde-vj"
 
@@ -43,6 +43,7 @@ pygmentsUseClassic = true     # falling back to Pygments instead of Chroma
     github = "vijayanant"
     linkedin = "vijayanant"
     twitter = "vijayanant"
+    keybase = "vijayanant"
     #instagram = "<username>"
     #xing = "<username>"
     #facebook = "<username>"
