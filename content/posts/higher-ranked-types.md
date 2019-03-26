@@ -25,7 +25,7 @@ The modified function `incr'` can work with any type that has a `Num` instance.
 Now let us move on and look at a simple _higher order_ function -
 
 ```Haskell
-foo :: (a-> a) -> a -> a
+foo :: (a -> a) -> a -> a
 foo g x = g x
 
 intval  = foo (+1) 1       -- 2
@@ -86,7 +86,7 @@ A rank-2 polymorphic function takes as an argument a rank-1 polymorphic
 function. A rank-3 functions takes as an argument a rank-2 polymorphic function,
 and so on. 
 
->If a higher order function takes as argument a rank (n-1) function,
+>If a higher order function takes as argument a rank (N-1) function,
 then it is said to be __Rank-N__ polymorphic function.
 
 
@@ -108,5 +108,5 @@ goodfoo :: (forall a. Show a => a -> a) -> String
 goodfoo g = (show (g 1)) ++ (g "Works!")
 ```
 
-Higher Ranked Types make polymorphic haskell functions _first class_.
+Higher Ranked Types make polymorphic Haskell functions _first class_.
 
