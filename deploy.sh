@@ -3,7 +3,7 @@
 echo -e "Deploying updates to GitHub..."
 
 # Build the project.
-hugo --theme=hyde-hyde
+hugo --theme=hyde-hyde-vj
 
 # Go To Public folder
 cd public
