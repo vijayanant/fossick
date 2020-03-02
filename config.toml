@@ -3,20 +3,26 @@ languageCode = "en-us"
 theme = "hyde-hyde-vj"
 
 ## Hugo Built-in Features
-disqusShortname = "fossickio"
+#disqusShortname = "fossickio"
 googleAnalytics = "UA-58152749-1"
 enableRobotsTXT = false
 
+#highlightjs = true
+#highlightjsstyle = "default"
+#highlightjsstyle = "github"
+#highlightjsstyle = "zenburn"
+
+
 # Built-in highlighting
 # https://gohugo.io/content-management/syntax-highlighting
-pygmentsCodeFences = true
+#pygmentsCodeFences = true
 #pygmentsStyle = "github"
 #pygmentsStyle = "friendly"
 #pygmentsStyle = "monokai"
 #pygmentsStyle = "default"
 #pygmentsUseClasses = true     # this overrides 'PygmentsStyle'
 #http://pygments.org
-pygmentsUseClassic = true     # falling back to Pygments instead of Chroma
+#pygmentsUseClassic = true     # falling back to Pygments instead of Chroma
 
 [permalinks]
   posts = "/:section/:slug/"
