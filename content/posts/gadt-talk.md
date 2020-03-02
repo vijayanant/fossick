@@ -9,8 +9,7 @@ bring compile time correctness to Haskell programs"""
 draft       = false
 +++
 
-Last week I gave a talk at [The Bangalore Haskell User Group]
-(https://www.meetup.com/The-Bangalore-Haskell-User-Group/) on using GADTs to
+Last week I gave a talk at [The Bangalore Haskell User Group](https://www.meetup.com/The-Bangalore-Haskell-User-Group/) on using GADTs to
 bring compile time correctness to Haskell programs. The focus of the talk was
 more towards advocating using Haskell type system features where possible to
 simplify code. The aim was to show  how error handling code can be

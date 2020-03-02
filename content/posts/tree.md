@@ -9,7 +9,7 @@ description = """Demonstrate the expressiveness of Haskell using a  simple
 Binary Tree and in-order traversal in Haskell, Python and Java""" 
 +++
 
-My goto answer when someone asks why I like [Haskell] (https://www.haskell.org)
+My goto answer when someone asks why I like [Haskell](https://www.haskell.org)
 so much these days is usually _"I like the expressiveness and run time
 guarantees of Haskell"._ For those who are little more interested, I would
 usually show the popular quick sort or merge sort implementations. I wanted a
@@ -24,7 +24,7 @@ languages. If you have any suggestions on making any of the these
 implementations more expressive, let me know and I will update the sample
 accordingly. Other languages are welcome too!
 
->  Edit: [Here] ({{< ref "/posts/expressiveness.md" >}}) is my take on what
+>  Edit: [Here]({{< ref "/posts/expressiveness.md" >}}) is my take on what
 >  expressiveness mean
 
 All three versions do the same thing. Define a simple `Tree` type. Instead of

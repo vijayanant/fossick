@@ -10,7 +10,7 @@ Whether a language can solve the Expression Problem is a salient indicator of
 its capacity for expression. """ 
 +++
 
-In the [previous post] ({{<ref "/posts/expressiveness.md">}}) I had put forward
+In the [previous post]({{<ref "/posts/expressiveness.md">}}) I had put forward
 (rather hastily, I must add) my thoughts on what does expressiveness mean for
 programming languages. I had this feeling of forgetting something important but
 couldn't pinpoint what it was. Today, while sipping a hot cup of coffee, I
@@ -18,8 +18,7 @@ remembered __the expression problem__.
 
 The Expression Problem is a well known problem in programming language theory
 dealing with the expressiveness of a programming language. Here is [Philip
-Wadler's original statement]
-(http://homepages.inf.ed.ac.uk/wadler/papers/expression/expression.txt) of the
+Wadler's original statement](http://homepages.inf.ed.ac.uk/wadler/papers/expression/expression.txt) of the
 problem.
 
 >The Expression Problem is a new name for an old problem. The goal is to define
@@ -47,7 +46,7 @@ to each object type (Literal and Add) forcing a recompilation of these classes.
 
 {{< gist vijayanant  231b2470b98a92d38d54c7b982ab6503 "ExpressonProblem.java">}}
 
-[Visitor design pattern] (https://en.wikipedia.org/wiki/Visitor_pattern) in OO
+[Visitor design pattern](https://en.wikipedia.org/wiki/Visitor_pattern) in OO
 programming is a known solution to cases where new operations are added over
 existing type (hierarchy). However, by using this pattern we will restrict our
 ability to add new types. Adding new (element) class (to the hierarchy) forces
@@ -75,9 +74,7 @@ typeclass.
 
 {{< gist vijayanant  231b2470b98a92d38d54c7b982ab6503 "ExpressionProblem.hs">}}
 
-In the _functional pearl_ [Data types a la carte]
-(http://www.cs.ru.nl/~W.Swierstra/Publications/DataTypesALaCarte.pdf),  _Wouter
+In the _functional pearl_ [Data types a la carte](http://www.cs.ru.nl/~W.Swierstra/Publications/DataTypesALaCarte.pdf),  _Wouter
 Swierstra_ proposes a solution to the expression problem. Philip Wadler himself
-calls this the [best solution in Haskell]
-(http://wadler.blogspot.com/2008/02/data-types-la-carte.html). 
+calls this the [best solution in Haskell](http://wadler.blogspot.com/2008/02/data-types-la-carte.html). 
 
