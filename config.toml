@@ -65,7 +65,7 @@ enableRobotsTXT = false
     identifier = "posts"
     url = "/posts/"
 [[menu.main]]
-    name = "CV"
+    name = "Resume"
     weight = 2
     identifier = "cv"
     url = "/resume.pdf"
