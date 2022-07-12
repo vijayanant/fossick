@@ -27,6 +27,18 @@ data compression to implement. Simply put, RLE compresses a stream of data items
 by encoding it as data item  followed by count of consecutive repetitions of
 that data. For example, `AABBBAAAAC` is encoded as `A2B3A4C`.
 
+Here are some more examples:
+
+| Original          | Encoded           |
+| -----------       | -----------       |
+| AAAA              | A4                |
+| AABBCC            | A2B2C2            |
+| ABBC              | AB2C              |
+| AB                | AB                |
+| aaaAAAaBBb        | a3A3aB2b          |
+| Vijay             | Vijay             |
+| RunLengthEncoding | RunLengthEncoding |
+
 ## Approach 1 - Basic Recursion
 A quick look at the example gives us our first approach. We pass through the
 sequence of data while keeping a running count of repetitions and when the
@@ -42,7 +54,7 @@ Here is a `Haskell` version.
 ```Haskell
 rle1 :: String -> String
 rle1 [] = ""
-rle1 (x:xs) = myenc "" x 1 xs
+rle1 (x:xs) = myenc1 "" x 1 xs
 
 myenc1 :: String -> Char -> Int -> String -> String
 myenc1 enc x n [] = enc ++ (x:(check n))
@@ -56,7 +68,7 @@ check n | n > 1 = show n
 
 ```
 Yes, we are going to have problem understanding what we did here in few months.
-We basically have a function `myenc` called recursively with the current state
+We basically have a function `myenc1` called recursively with the current state
 of the program passed as arguments.
 
 After marvelling (crying?) at the code for a while it hits us. We have turned a
@@ -129,7 +141,7 @@ enhancement is that we no longer deal with individual letters. We look at a
 bunch of letter as a whole.
 
 >The beauty of programming is to solve smaller generic problems and combining
->them to solve a much larger problems.
+>them to solve much larger problems.
 
 We are onto something here! Let us look at the problem from this perspective.
 Can we identify a smaller, generic problem that we can solve?
