@@ -1,20 +1,21 @@
 +++
-title       = "Running Behind Run Length Encoding!"
+title       = "Struggles of a newcomer to FP"
 date        = 2022-06-09
 type        = "post"
 categories  = ["Programming"]
 tags        = ["fp", "Haskell", "Declarative"]
-description = "Struggles of a newcomer to FP"
+description = """Using a language that promotes functional style of programming
+does not automatically guarantee simple and maintainable code."""
 draft       = false
 +++
 
 One of the challenges that I faced earlier on with FP is coming up with
 non-imperative solutions (I still do sometimes). I am sure many have faced
 similar hardships. We, those who have trained ourselves to think imperatively,
-jump to iterative solution first, then remember/realise we are lacking the
+jump to imperative solution first, then remember/realise we are lacking the
 corresponding tools (loops, mutability, etc) in our new favourite language
-(Haskell for me). Quite often this results in ugly recursive solution that we
-think is functional.
+(Haskell for example). Quite often this results in ugly recursive solution that
+we think is functional.
 
 Today we repeat that once again. We write a __recursive__ algorithm and then
 modify it to work with `fold` (and make it worse!). And then realise we missed
@@ -23,9 +24,11 @@ something basic and come up with a neat solution or two.
 ## Run Length Encoding 
 We choose [Run-Length
 Encoding](https://en.wikipedia.org/wiki/Run-length_encoding) (RLE) -- a lossless
-data compression to implement. Simply put, RLE compresses a stream of data items
-by encoding it as data item  followed by count of consecutive repetitions of
-that data. For example, `AABBBAAAAC` is encoded as `A2B3A4C`.
+data compression technique to implement. RLE has been used in encoding analog TV
+signals, bitmap images, and in possibly many more places. Simply put, RLE
+compresses a stream of data items by encoding it as data item  followed by count
+of consecutive repetitions of that data. For example, `AABBBAAAAC` is encoded as
+`A2B3A4C`.
 
 Here are some more examples:
 
@@ -134,23 +137,23 @@ This is much better compared to the initial solution. We no longer maintain
 state between function calls. Let us take it to next level.
 
 
-##  A Revelation?
+##  Aha!! 
 What changed in our 3rd approach? Why is it better than the first two? One thing
 for sure is we no longer have messy state management. What else? A major
 enhancement is that we no longer deal with individual letters. We look at a
 bunch of letter as a whole.
 
 >The beauty of programming is to solve smaller generic problems and combining
->them to solve much larger problems.
+>them to solve much larger problem.
 
 We are onto something here! Let us look at the problem from this perspective.
 Can we identify a smaller, generic problem that we can solve?
 
 Yes, here is a smaller problem - given a bunch of repeating letters, like
-"`AAAAAAAA`", can we encode it as "`A8`"? The next problem, then, is
-given a random string of letters, can I split it into multiple smaller strings
-of repeating letters? The only part left now is  how to string together these
-two smaller solutions to get RLE.
+"`AAAAAAAA`", can we encode it as "`A8`"? The next problem, then, is given a
+random string of letters, can I split it into multiple smaller strings of
+repeating letters? The only part left now is  how to string together these two
+smaller solutions to get RLE.
 
 In summary all we need to do is
 
@@ -174,16 +177,23 @@ The `group` function from `Data.List` does the first part, `encode` does the
 second part, `concat` combines the result. We then compose them together.
 
 
-## Conclusion
+## So, What Does It Mean?
 If we take a look at how our code/solution evolved, we notice a few things - 1)
 our code improved drastically once we removed state management, 2) in the final
 solution, most of the work is done by standard library functions 3) our code
 evolved from describing how to solve the problem to declaring how the problem is
 to be solved
 
-Aren't these the first things we hear about FP? Pure functions, a few but
-well known abstractions, and most importantly declarative style of
-programming where we write code that describes what will be done, not how it
-will be done.
+Aren't these the first few things we hear about FP? Pure functions, a few but
+well known abstractions, and most importantly declarative style of programming
+where we write code that describes what will be done, not how it will be done.
+As a beginner, sticking to these three guidelines/principles will help a lot. Of
+course, there is much more to FP, but no need to hurry, it will come to you
+naturally as you write more functional code. 
+
+There is another lesson here for us - using a language that promotes functional
+style of programming (like Haskell, Scala, Clojure, etc.) does not automatically
+guarantee simple and maintainable code. If not careful, even FP cannot save us
+from ugly and unmaintainable code.
 
 
