@@ -1,10 +1,7 @@
 +++
 date = 2014-07-28T11:14:25Z
-title = "About"
+title = "About Me"
 type = "about"
-
-[menu.main]
-  weight = 2
 +++
 Hey there, I'm Vijay. I'm a Software Architect living in [Bengaluru, India](https://en.wikipedia.org/wiki/Bangalore). I love coffee, and programming. In my
 free time, other than coding, you will find me watching anime or reading manga.
