@@ -1,5 +1,5 @@
 +++
-title       = "Struggles of a newcomer to FP"
+title       = "Struggles Of A Newcomer To FP"
 date        = 2022-06-09
 type        = "post"
 categories  = ["Programming"]
@@ -51,10 +51,9 @@ and continue with the sequence. Seems straight forward, right?
 The idea is simple, we start from the left, process each element (of the list)
 one at a time, and accumulate the result (encoded list) in each step.
 
-
 Here is a `Haskell` version.
 
-```Haskell
+```haskell
 rle1 :: String -> String
 rle1 [] = ""
 rle1 (x:xs) = myenc1 "" x 1 xs
@@ -68,7 +67,6 @@ myenc1 enc x n  (y:ys) = case y == x of
 check :: Int -> String
 check n | n > 1 = show n
         | otherwise = ""
-
 ```
 Yes, we are going to have problem understanding what we did here in few months.
 We basically have a function `myenc1` called recursively with the current state
@@ -91,12 +89,12 @@ Firstly, the recursion is handled by fold itself. So, manual recursion calls are
 no longer needed. Secondly, the fold function expects a binary function as
 argument.
 
-```Haskell
+```haskell
 foldl' :: Foldable t => (b -> a -> b) -> b -> t a -> b
 ```
 Here is what we get --
 
-```Haskell
+```haskell
 rle2 :: String -> String
 rle2 [] = ""
 rle2 (x:xs) = let (e, c, n) = foldl' myenc2 ("", x, 1) xs
@@ -111,12 +109,10 @@ myenc2 (enc, current, count) x =
 
 **Yuck**, this isn't any better at all!!
 
-
 ## What is wrong?
 At this point we are frustrated enough. This is the point at which we ask
 ourself what went wrong? And this is when we have to take a step back and
 rethink. Is there a better way? Can we rethink the solution? 
-
 
 ## A Better Approach?
 Instead of looking at each letter, we can look at a pattern or sub-sequence as a
@@ -124,7 +120,7 @@ whole. That is, `AAADDCCCCBB` can be seen a sequence of `A`'s,`D`'s,`C`'s, and
 `B`'s in that order. If we can split the whole thing into a such a grouping, we
 can treat each group separately.
 
-```Haskell
+```haskell
 rle3 :: String -> String
 rle3 [] = []
 rle3 (x:xs) = x: showLen first ++ rle3 rest
@@ -135,7 +131,6 @@ rle3 (x:xs) = x: showLen first ++ rle3 rest
 
 This is much better compared to the initial solution. We no longer maintain
 state between function calls. Let us take it to next level.
-
 
 ##  Aha!! 
 What changed in our 3rd approach? Why is it better than the first two? One thing
@@ -163,7 +158,7 @@ In summary all we need to do is
 
 Here is how it will look -
 
-```Haskell
+```haskell
 encode :: String -> String
 encode [] = []
 encode [x] = [x]
@@ -175,7 +170,6 @@ rle = concat . map encode . group
 
 The `group` function from `Data.List` does the first part, `encode` does the
 second part, `concat` combines the result. We then compose them together.
-
 
 ## So, What Does It Mean?
 If we take a look at how our code/solution evolved, we notice a few things - 1)
@@ -195,5 +189,4 @@ There is another lesson here for us - using a language that promotes functional
 style of programming (like Haskell, Scala, Clojure, etc.) does not automatically
 guarantee simple and maintainable code. If not careful, even FP cannot save us
 from ugly and unmaintainable code.
-
 
