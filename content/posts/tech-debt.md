@@ -1,5 +1,5 @@
 +++
-title       = "Tech Debt"
+title       = "Technical Debt"
 date        = 2022-12-28
 type        = "post"
 categories  = ["Programming"]
@@ -7,7 +7,6 @@ tags        = ["technical debt"]
 description = ""
 draft       = false
 +++
-# Technical Debt
 
 [Ward Cunningham](https://en.wikipedia.org/wiki/Ward_Cunningham), co-author of
 the Agile Manifesto and a pioneer in design patterns and XP, came up with this
