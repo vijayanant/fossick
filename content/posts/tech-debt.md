@@ -4,8 +4,9 @@ date        = 2022-12-28
 type        = "post"
 categories  = ["Programming"]
 tags        = ["technical debt"]
-description = ""
-draft       = false
+description = """Consequence of Tech Debt is quicker to market now, refactoring
+effort later. Consequence of bad code is apparent speed now, legacy code and
+code rewrite later."""
 +++
 
 [Ward Cunningham](https://en.wikipedia.org/wiki/Ward_Cunningham), co-author of
@@ -243,6 +244,10 @@ quickly. We usually end up releasing slower than expected and with messy code
 which is harder to refator taking up even more effort when the time comes.
 Taking on debt to speed-up delivery only works if you  write code that is clean
 enough to be understood and refactored.
+
+> Consequence of Tech Debt is quicker to market now and refactoring effort later.
+> Consequence of bad code is apparent speed now coupled with legacy code and code
+> rewrite later.
 
 ## Finally...
 
