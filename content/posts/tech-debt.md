@@ -5,7 +5,7 @@ type        = "post"
 categories  = ["Programming"]
 tags        = ["technical debt"]
 description = ""
-draft       = true
+draft       = false
 +++
 # Technical Debt
 
