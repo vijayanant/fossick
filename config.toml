@@ -61,12 +61,12 @@ enableRobotsTXT = false
     keywords = "thoughts, programming, technology"
 ## Main Menu
 [[menu.main]]
-    name = "Archieve"
+    name = "Archive"
     weight = 1
     identifier = "archive"
     url = "/posts/"
 [[menu.main]]
-    name = "Resume"
+    name = "Résumé"
     weight = 2
     identifier = "cv"
     url = "/resume.pdf"
