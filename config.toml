@@ -7,6 +7,7 @@ theme = "hyde-hyde-vj"
 googleAnalytics = "UA-58152749-1"
 enableRobotsTXT = false
 
+
 #highlightjs = true
 #highlightjsstyle = "default"
 #highlightjsstyle = "github"
@@ -36,6 +37,7 @@ enableRobotsTXT = false
     authorimage = "/author.png"
     googlefonts = "//fonts.googleapis.com/css?family=Muli"
     dateformat = "02 Jan 2006"
+    RSSLink = "https://www.vijayanant.com/index.xml"
     #highlightjs = true
     #highlightjsstyle = "default"
     #highlightjsstyle = "github"
