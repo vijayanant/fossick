@@ -12,9 +12,10 @@ code rewrite later."""
 [Ward Cunningham](https://en.wikipedia.org/wiki/Ward_Cunningham), co-author of
 the Agile Manifesto and a pioneer in design patterns and XP, came up with this
 metaphor as a way of explaining (to non-technical stakeholders) why refactoring
-was an essential part of software development. He conveys to them that refactoring is
-as important as shipping software early to maintain their. He used the **debt metaphor as a way of making an analogy
-to how venture capital is used to get a business off the ground.**
+was an essential part of software development. He conveys to them that
+refactoring is as important as shipping software early to maintain their. He
+used the **debt metaphor as a way of making an analogy to how venture capital is
+used to get a business off the ground.**
 
 >With borrowed money you can do something sooner than you might otherwise, but
 >then until you pay back that money you'll be paying interest. I thought
@@ -27,6 +28,7 @@ to how venture capital is used to get a business off the ground.**
 > -- Ward Cunningham
 
 ## It Is Not A Bad Thing
+
 The idea that technical debt is inherently a bad thing is a corruption of
 Cunningham's original concept. He makes it clear when he says *"I thought
 borrowing money was a good idea".* He sees it as the trade-offs made between
@@ -40,6 +42,7 @@ We have moved quickly to capture the market by taking on some debt. This is
 surely a competitive advantage but it comes with a cost.
 
 ## Bad Code Is NOT Encouraged!
+
 There is a misunderstanding that it is OK to write bad code in order to push
 software faster. The argument is - *we are going to come back and fix it later
 anyway, so why spend time writing clean code now?* This is not correct.
@@ -52,11 +55,10 @@ expected to *refactor* our code to reflect that experience gained.
 >
 >-- Ward Cunningham
 
-He is asking us to write good-quality code even when we accrue debt.
-__Bad code is bad at explaining the intent of the code.__ It is not clear what
-was the understanding when you wrote it. And when the time comes to refactor, it
-is that much harder to change the code as you don't understand why it is the way
-it is.
+He is asking us to write good-quality code even when we accrue debt. __Bad code
+is bad at explaining the intent of the code.__ It is not clear what was the
+understanding when you wrote it. And when the time comes to refactor, it is that
+much harder to change the code as you don't understand why it is the way it is.
 
 The debt is supposed to be easier to pay back. Bad code makes repayment harder.
 In fact, the debt metaphor works to our advantage only if we write code that is
@@ -70,8 +72,8 @@ problem improves.
 
 ## What is Tech Debt?
 
-Our understanding of the problem evolves with time, and our code should reflect our
-current understanding of the problem. We accrue technical debt as the gap
+Our understanding of the problem evolves with time, and our code should reflect
+our current understanding of the problem. We accrue technical debt as the gap
 between our current level of understanding and the level of understanding
 reflected by the code grows. When we gain experience and understand more
 subtleties and nuances of the problem, we refactor our existing code to match
@@ -93,23 +95,23 @@ can't.
 
 If all this sounds unfamiliar, or is different from what you have read before,
 it is probably because Technical Debt has become conflated with another concept
--[system entropy](https://en.wikipedia.org/wiki/Entropy) (a measure of the degree of
-disorder in a system). It's easy to write code quickly and ignore good practices
-and factoring. Over time, all of these neglects accumulate and we end up with
-code that looks more like a jungle than a clean understandable guide to the
-behaviour of a system. Code that is hard to understand is very different from
-code that has a different understanding of the problem.
+-[system entropy](https://en.wikipedia.org/wiki/Entropy) (a measure of the
+degree of disorder in a system). It's easy to write code quickly and ignore good
+practices and factoring. Over time, all of these neglects accumulate and we end
+up with code that looks more like a jungle than a clean understandable guide to
+the behaviour of a system. Code that is hard to understand is very different
+from code that has a different understanding of the problem.
 
 ## An example May Help
+
 Let us assume I am working on a feature that needs to send SMS.  I check with
 other teams if we already have a service/system that can send SMS. I am told
 that you are working on a Notification System/Service that combines email, SMS,
 and/or InApp notifications. It will be ready in 2 months. I am also told that
 every system will have to use this notification system going forward.
 
-But, I have to launch my feature in 2 weeks; I will not wait for your
-system to be ready. I will use a simple SMS library/service to get things
-rolling.
+But, I have to launch my feature in 2 weeks; I will not wait for your system to
+be ready. I will use a simple SMS library/service to get things rolling.
 
 I have now taken a debt. Once the Notification system is ready and is the
 de-facto thing, the debt becomes obvious. Every time we deal with my service we
@@ -118,13 +120,14 @@ we change the Notification, we have to deal with the SMS library. Our mental
 model is that every system uses the same notification system, but our code
 doesn't follow that model.
 
-Once I switch to using the notification system, I paid back the premium. No
-more debt.
+Once I switch to using the notification system, I paid back the premium. No more
+debt.
 
 
 ## Another Example, With Code Please?
-OK, let us take another example with code. We have an `addEvent` method that adds
-the scheduling event to a collection.
+
+OK, let us take another example with code. We have an `addEvent` method that
+adds the scheduling event to a collection.
 
 ```java
 public class Scheduler {
@@ -187,18 +190,17 @@ in Scheduler does not have to change. We had to do a bit of work to refactor the
 code to this state, but once we have, adding the feature is trivial, and
 non-invasive.
 
-
-
 ## Tracking Tech Debt
+
 Now that we have some understanding of tech debt and the need for refactoring,
 let us think about tracking our debt.
 
-Over time people have come up with many ways to track tech debt. One is
-through **code comments.** You add code comments where appropriate to document
-technical debt as it arises. Try to include why you are doing it the way you are
-doing it and at least one potential solution. Such comments usually start with
-`FIXME`, `TODO`, or `OPTIMIZE` tag. Again, remember, bad code is not tech debt.
-Don't fill your code base with FIXMEs and TODOs.
+Over time people have come up with many ways to track tech debt. One is through
+**code comments.** You add code comments where appropriate to document technical
+debt as it arises. Try to include why you are doing it the way you are doing it
+and at least one potential solution. Such comments usually start with `FIXME`,
+`TODO`, or `OPTIMIZE` tag. Again, remember, bad code is not tech debt. Don't
+fill your code base with FIXMEs and TODOs.
 
 It is hard to pin down all tech debt to a location in the code. It is hard to
 track if there's nowhere to document it. A **DEBT.md** file provides that
@@ -211,8 +213,8 @@ Instead of maintaining a separate file for debt, some use an **issue tracker**
 
 All of this may sound good in theory but have little practicality. Unless you
 have a way of measuring the value/cost associated with it, there is no way you
-can prioritise such a list and act upon it. And there is no good way to assign such
-a value/cost to tech debt.
+can prioritise such a list and act upon it. And there is no good way to assign
+such a value/cost to tech debt.
 
 ## When To Refactor
 
@@ -234,25 +236,24 @@ Either way, we changed the code to make it easier to add a new feature. We could
 say this refactoring effort is the cost. But we couldn't have known this before
 the feature was even thought of.
 
-
 The message is clear, don't use the debt metaphor to justify writing bad code;
 you are simply degrading the internal quality. The argument that 'new features
 are needed urgently, and perhaps it is OK to let the code be messy' isn't well
-founded. Bad code impacts quickly and slows down the new features that are needed
-quickly. We usually end up releasing slower than expected and with messy code
-which is harder to refactor taking up even more effort when the time comes.
+founded. Bad code impacts quickly and slows down the new features that are
+needed quickly. We usually end up releasing slower than expected and with messy
+code which is harder to refactor taking up even more effort when the time comes.
 Taking on debt to speed-up delivery only works if you  write code that is clean
 enough to be understood and refactored.
 
-> Consequence of Tech Debt is quicker to market now and refactoring effort later.
-> Consequence of bad code is apparent speed now coupled with legacy code and code
-> rewrite later.
+> Consequence of Tech Debt is quicker to market now and refactoring effort
+> later. Consequence of bad code is apparent speed now coupled with legacy code
+> and code rewrite later.
 
 ## Finally...
 
-Tech Debt is a metaphor initially used to explain the management
-need for code refactoring; it is not a development methodology or a design
-philosophy; it neither tell you how to design or write code nor does it tell you
-when to take debt. The debt metaphor helps us think about how to deal with
-design problems and how to communicate that thinking.
+Technical Debt is a metaphor initially used to explain the management need for
+code refactoring; it is not a development methodology or a design philosophy; it
+neither tell you how to design or write code nor does it tell you when to take
+debt. The debt metaphor helps us think about how to deal with design problems
+and how to communicate that thinking.
 
