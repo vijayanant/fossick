@@ -5,7 +5,7 @@ type        = "post"
 categories  = ["Blogging"]
 tags        = ["blogging", "starting a blog", "blogging for beginners", "personal branding"]
 description = ""
-draft       = true
+draft       = false
 +++
 
 
