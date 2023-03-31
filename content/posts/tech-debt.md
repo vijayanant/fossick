@@ -13,9 +13,9 @@ code rewrite later."""
 the Agile Manifesto and a pioneer in design patterns and XP, came up with this
 metaphor as a way of explaining (to non-technical stakeholders) why refactoring
 was an essential part of software development. He conveys to them that
-refactoring is as important as shipping software early to maintain their. He
-used the **debt metaphor as a way of making an analogy to how venture capital is
-used to get a business off the ground.**
+refactoring is as important as shipping software early to maintain their place
+in the market. He used the **debt metaphor as a way of making an analogy to how
+venture capital is used to get a business off the ground.**
 
 >With borrowed money you can do something sooner than you might otherwise, but
 >then until you pay back that money you'll be paying interest. I thought
