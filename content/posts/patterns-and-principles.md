@@ -9,7 +9,6 @@ is complimentary. Design principles provide high-level guidelines and best
 practices for designing software. Design patterns provide concrete
 implementations to specific design problems while adhering to the design
 principles"""
-draft       = true
 +++
 
 Design principles and design patterns are related but serve different purposes.
