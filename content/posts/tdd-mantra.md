@@ -1,70 +1,61 @@
 +++
 type = "post"
 date = "2018-05-11"
-title = "TDD Mantra"
+title = "Quick Guide to Test-Driven Development (TDD)"
 categories = ["Programming"]
 tags = ["development", "testing", "TDD"]
 +++
 
+Test-Driven Development (TDD) is a software development approach that emphasises on tests driving the development. It means that tests play a central role in guiding the entire development process. With each new test driving the development of a small piece of functionality, the tests act as both a specification and a guide, providing clear expectations for the code's behaviour and helping developers stay focused on delivering the required features. 
+
 ## The Essence
-* Don't write a line of new code unless you first have a failing automated test. 
-* Eliminate duplication. (refactor)
+TDD can be summarised by two key principles:
+
+1. **Red**: Write a little test that doesn't work, perhaps doesn't even compile at first.
+2. **Green**: Make the test work quickly, committing whatever sins necessary in the process.
+3. **Refactor**: Eliminate all the duplication created in just getting the test to work.
 
 ## What is Needed
-The ability to write concrete, deterministic, automated tests is a prerequisite
-for applying TDD.
+Before diving into TDD, it's crucial to have the following prerequisites in place:
 
-## Mantra - Order in Programming
-The two mantras imply an order to the tasks of programming:
+* The ability to write concrete, deterministic, automated tests.
+* A development environment that provides rapid response to small code changes.
 
-* Red - write a little test that doesn’t work, perhaps doesn’t even compile at
-  first
-* Green - make the test work quickly, committing whatever sins necessary in the
-  process 
-* Refactor - eliminate all the duplication created in just getting the test to
-  work
+## The Rhythm of TDD
+To successfully practice TDD, follow this iterative rhythm:
 
-## Implications
-The simple mantra generates complex individual and group behavior. Some of the
-technical implications are:
+* **Add a Test**: Begin by adding a new test that describes the desired behaviour or functionality.
+* **Run All Tests**: Execute all existing tests, including the new one, and observe the new test fail as expected.
+* **Make a Change**: Implement the minimum code necessary to make the failing test pass.
+* **Run All Tests**: Execute the test suite again, ensuring that all tests, including the newly added one, pass.
+* **Refactor**: Once all tests are passing, refactor the code to improve its structure, remove duplication, and enhance overall quality. During this stage, keep running the tests to ensure that all changes maintain the system's correctness.
 
-* You must design organically, with running code providing feedback between
-  decisions
-* You must write your own tests, since you can't wait twenty times a day for
-  someone else to write a test
-* Your development environment must provide rapid response to small changes
-* Your designs must consist of many highly cohesive, loosely coupled components,
-  just to make testing easy
+## Best Practices for TDD
+To make the most of TDD, consider the following best practices:
 
+* Write clear and focused tests that cover specific behaviours.
+* Aim for high test coverage to ensure comprehensive validation.
+* Utilise test doubles (mocks, stubs) to isolate dependencies.
+* Use descriptive test names that reflect the intended behaviour being tested.
+* Keep tests independent of each other to avoid cascading failures.
+* Continuously refactor tests to maintain clarity and readability.
 
-## Benefits
-* If the defect density can be reduced enough, QA can shift from reactive to
-  proactive work
-* If the number of nasty surprises can be reduced enough, project managers can
-  estimate accurately enough to involve real customers in daily development
-* If the topics of technical conversations can be made clear enough, programmers
-  can work in minute-by-minute collaboration instead of daily or weekly
-  collaboration
-* If the defect density can be reduced enough, we can have shippable software
-  with new functionality every day, leading to new business relationships with
-  customers
+## TDD Tools and Frameworks
+There are several tools and frameworks that can enhance your TDD workflow, such as:
 
-## What is in it for Developers?
-Managing Fear - Once you get one test working, you know it is working, now and
-forever. You are one step closer to having everything working than you were when
-the test was broken. Now get the next one working, and the next, and the next.
-By analogy, the tougher the programming problem, the less ground should be
-covered by each test.
+* Testing frameworks (e.g., JUnit, NUnit, pytest) for organising and executing tests.
+* Assertion libraries (e.g., assertj, Chai, Hamcrest) for expressive assertions.
+* Test runners and continuous integration tools (e.g., Jenkins, Travis CI) for automating test execution and reporting.
+* Code coverage tools (e.g., JaCoCo, Istanbul, coverage.py) for tracking test coverage metrics.
 
-## The Rhythm
-* Quickly add a test
-* Run all tests and see the new one fail
-* Make a little change
-* Run all tests and see them all succeed
-* Refactor to remove duplication
+## TDD in Agile Development
+TDD aligns closely with Agile development methodologies. By practicing TDD in an Agile context, teams can benefit from:
 
-## Surprises
-* How each test can cover a small increment of functionality
-* How small and ugly the changes can be to make the new tests run
-* How often the tests are run
-* How many tiny steps make up the refactorings
+* Iterative development cycles with continuous feedback.
+* Early identification of defects and issues through automated testing.
+* Collaborative and customer-focused development practices.
+* Improved estimations and project management through predictable code behaviour.
+
+## Conclusion
+Test-Driven Development is not just a testing technique; it is a development approach that brings discipline, confidence, and clarity to the software development process. By following the TDD principles, employing best practices, and leveraging appropriate tools, developers can build robust, maintainable, and high-quality software that meets the needs of users and stakeholders.
+

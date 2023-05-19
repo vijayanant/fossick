@@ -2,7 +2,7 @@
 title       = "Why YOU Should Blog Too!"
 date        = 2023-03-30T13:21:32+05:30
 type        = "post"
-categories  = ["Blogging"]
+categories  = ["Blogging", "rant"]
 tags        = ["blogging", "starting a blog", "blogging for beginners", "personal branding"]
 description = ""
 draft       = false

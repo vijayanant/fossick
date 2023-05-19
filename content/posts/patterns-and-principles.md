@@ -24,7 +24,7 @@ easier to maintain and change over time.
 problems in software development. They are practical, reusable solutions that
 can be applied to specific programming languages or technologies. Design
 patterns are based on design principles but provide specific implementations
-that can be used to solve specific problems. They can also help developers avoid
+that can be used to solve specific problems. They also help developers avoid
 common pitfalls in software development and ensure that their code is efficient,
 scalable, and easy to understand.
 
@@ -152,11 +152,13 @@ systems more modular and easier to maintain.
   the algorithms are defined as interfaces or abstract classes, which can be
   easily extended or modified without affecting the client code.
 
+
 ## The Other Way Around
 
-It is also possible for a single design pattern to cater to more than one design
-principle. Many design patterns are designed to address multiple design
-principles simultaneously.
+It is also possible for a single design pattern to cater for more than one
+design principle. Design patterns are in widespread use because they do not go
+against any of the principles and address many (if not all) design principles.
+For example -
 
 * The Strategy pattern is often used to address the Open/Closed Principle (OCP)
   and the Single Responsibility Principle (SRP) at the same time. The OCP states
@@ -180,9 +182,8 @@ trying to solve. Not all patterns will apply to every situation, and it
 is important to consider the trade-offs and benefits of each pattern before
 choosing the one that is best suited for your needs.
 
-In conclusion, the five major design principles in object-oriented programming
-and design patterns are essential for creating maintainable, extensible, and
-adaptable code. By following these principles and patterns, developers can
-reduce the risk of introducing bugs when making changes, and make systems more
-modular and easier to maintain, and create code that is easier to test and
-reuse.
+In conclusion, the five major design principles and design patterns are
+essential for creating maintainable, extensible, and adaptable code. By
+following these principles and patterns, developers can reduce the risk of
+introducing bugs when making changes, and make systems more modular and easier
+to maintain, and create code that is easier to test and reuse.

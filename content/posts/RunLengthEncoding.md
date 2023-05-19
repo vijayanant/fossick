@@ -3,7 +3,7 @@ title       = "Struggles Of A Newcomer To FP"
 date        = 2022-06-09
 type        = "post"
 categories  = ["Programming"]
-tags        = ["fp", "Haskell", "Declarative"]
+tags        = ["fp", "Haskell", "Declarative", "RLE", "encoding"]
 description = """Using a language that promotes functional style of programming
 does not automatically guarantee simple and maintainable code."""
 draft       = false

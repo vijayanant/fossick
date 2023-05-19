@@ -9,9 +9,10 @@ tags = [
   "Software Design",
   "Principles",
   "SOLID",
-  "Packaging"
+  "Packaging",
+  "OOP"
 ]
-categories = ["Programming", "Object Orientation", "Software Design"]
+categories = ["Programming",]
 +++
 
 There is a good chance that you all are aware of the SOLID principles. There are many more principles for us to consider and adhere to while developing OO software.

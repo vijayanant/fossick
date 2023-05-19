@@ -2,8 +2,8 @@
 title       = "GADTs Talk - Bengaluru Haskell Meetup"
 date        = 2018-11-29
 type        = "post"
-categories  = ["talk", "Haskel"]
-tags        = ["fp"]
+categories  = ["Programming", "talk"]
+tags        = ["fp", "Haskell"]
 description = """Talk I gave at Bangalore Haskell Meetup Group on using GADTs to
 bring compile time correctness to Haskell programs"""
 draft       = false

@@ -1,311 +1,179 @@
 +++
 type = "post"
 date = "2018-02-25"
-title = "Lambda Calculus"
+title = "Basic Lambda Calculus"
 tags = [
   "fp",
   "Lambda",
   "Lambda Calculus",
-  "Church Numerals",
-  "Beta Reduction",
-  "Call By Name",
-  "Call By Value"
 ]
 categories = [ 
   "Programming",
   "Maths"
 ]
-description = "Introduction to Lambda-Calculus and Church Numerals"
+description = "Introduction to Lambda-Calculus"
 +++
 
-The [models of computation](https://en.wikipedia.org/wiki/Model_of_computation)
-can be broadly classified into two groups - those that are based on _machine 
-model_ and the λ Calculus. 
+Lambda calculus, introduced by Alonzo Church in the 1930s, is a formal system that serves as a foundation for studying computation. Unlike machine models, such as the Turing Machine, lambda calculus operates on the principles of function definition and application as the fundamental operations of computation.
 
-Machine models are based on the idea of a program acting on data by
-modification. So a [Turing Machine](https://en.wikipedia.org/wiki/Turing_machine)
-consists of a program acting on the data. There is a clear distinction between
-program and data. Programs are not data and data do not contain programs ('first
-order'). The machine based languages are inherently imperative.
+One of the key distinctions between lambda calculus and machine models is the absence of a clear separation between programs and data in lambda calculus. Instead, lambda calculus treats computation as a process of symbolic transformation using variables and functions. This unique characteristic makes lambda calculus a "higher-order" system, allowing for powerful abstraction and manipulation of functions.
 
-λ-calculus is a formal system invented in the 1930s by __Alonzo Church__, in
-which all computation is reduced to the basic operations of function definition
-and application. There is no separation of program from data; the λ calculus
-is inherently "higher order".
+Unlike machine models, which are inherently imperative, lambda calculus is rooted in mathematical concepts and emphasises symbolic transformation rules. It is not concerned with specific machine implementations, but rather focuses on the fundamental principles of computation.
 
-λ calculus is different from machine models because it is based on the 
-mathematical concept of a variable (which is not at all related to the concept 
-of a "variable", a misnomer for "assignables" in machine models). λ-calculus
-emphasizes the use of symbolic transformation rules and does not care about the
-actual machine implementation.
+By delving into lambda calculus, one gains insights into functional programming paradigms, formal reasoning, and the theoretical underpinnings of computation itself. It provides a framework for studying computation from a more abstract and theoretical standpoint, exploring the power of function abstraction and application in solving computational problems.
 
-## Grammar
-The syntax of the λ-calculus comprises just three sorts of _terms_.
+Overall, lambda calculus is an influential and foundational concept in computer science that has paved the way for functional programming languages and deepened our understanding of computation beyond traditional machine-based models.
 
-* A variable `x` by itself is a term;
-* The abstraction of a variable `x` from a term `t1`, written `λx.t1`, is a term;
-* And the application of a term `t1` to another term `t2`, written `t1 t2`, is a term.
+## Notation, Rules, And Building Blocks 
+Lambda calculus can be considered both a formal system and a notation. It doesn't have a traditional grammar or syntax like programming languages do, but it has a set of rules that define its structure and how expressions are constructed. The basic elements of lambda calculus include variables, lambda abstractions, and function applications.
 
-These ways of forming terms are summarized in the following grammar.
+- __Variables__: Variables are used to represent inputs and outputs of functions. They can be any symbol or name chosen by the programmer. For example, `x`, `y`, `z` are common variable names.
 
-```haskell
-t ::=      -- Terms
-  x        -- Variable
-  λx. t    -- Abstraction
-  t t      -- Application
+- __Lambda Abstractions__: Lambda abstractions define functions in lambda calculus. They consist of the `λ` symbol (lambda), followed by a variable, a dot (`.`), and an expression. The expression represents the body of the function. For example, `λx.x` represents a function that takes an input `x` and returns `x` itself.
+
+- __Function Applications__: Function applications are used to apply a function to an argument. It involves writing the function followed by the argument. For example, `(λx.x) y` applies the function `λx.x` to the argument `y`.
+
+
+## Nesting and Currying 
+Lambda calculus expressions can be further combined and nested to create more complex functions. Multiple arguments can be represented using nested lambda abstractions or by currying, a technique where a function with multiple arguments is transformed into a sequence of functions, each taking one argument.
+
+Suppose we have a function that takes two arguments, `add`, and we want to represent it as a sequence of functions, each taking one argument. We can do this using nested lambda abstractions. 
+
+```
+add = λx.λy.(x + y)
 ```
 
-## Abstraction and Application
-Abstraction is a key feature of essentially all programming languages. Instead
-of writing the same calculation over and over, we write a function that
-performs the calculation generically, in terms of one or more named parameters,
-and then instantiate this function as needed, providing values for the
-parameters in each case.
+This represents a function that takes one argument `x` and returns another function that takes the second argument `y` and performs the addition. We can then apply add to an argument as follows: `(add 2) 3`, which yields the result `5`. Here, `add 2` returns a function that takes `3` as an argument and performs the addition.
 
-A λ function is such an abstraction which has the form:
+Let's consider another function that takes three arguments, `multiply`, and we want to transform it into a sequence of functions, each taking one argument. 
 
-```Haskell
-λ<variable>.<lambda term>    -- refer to the grammar above
+```
+multiply = λx.λy.λz.(x * y * z)
 ```
 
-λ-calculus embodies a kind of function definition (and application) that is the
-purest possible form. In the lambda-calculus everything is a function: the
-arguments accepted by functions are themselves functions and the result returned
-by a function is another function.
+Here, the function multiply takes three arguments `x`, `y`, and `z`, and multiplies them together. By applying currying, we can create a sequence of functions, each taking one argument: `mult = (multiply 2)`, which gives us a function that takes one argument `x` and returns another function: `mult = λx.(λy.(λz.(x * y * z)))`. We can then apply the remaining arguments like `(mult 3) 4`, which yields the result `24`. Here, `mult 3` returns a function that takes `4` as an argument and performs the multiplication.
 
-```Haskell
-(λx. f x) 4
+The syntax of lambda calculus is deliberately minimalistic, focusing on the essentials of function definition and application. It provides a foundation for reasoning about functions and computation in a purely symbolic and mathematical manner.
+
+It's important to note that while lambda calculus has a simple syntax, its power lies in its ability to express complex computations through function composition, recursion, and other constructs built on top of its core principles.
+
+## Evaluation Rules
+
+In lambda calculus, variables can be categorised as either bound variables or free variables. Understanding the distinction between these two types of variables is crucial in understanding the scoping and substitution rules in lambda calculus. 
+
+__Bound variables__ are variables that are locally defined within the scope of a lambda abstraction. They are bound by the lambda abstraction and can only be accessed or referenced within that specific scope. Bound variables are typically represented as the arguments of lambda abstractions.
+
+For example, consider the lambda abstraction: `λx.(x y)`. Here, the variable `x` is a bound variable because it is bound by the lambda abstraction `λx.`. It can only be used within the scope of this abstraction.
+
+__Free variables__ are variables that occur within an expression but are not bound by any surrounding lambda abstractions. They are not locally defined and can be referenced from outside the scope in which they appear. Free variables can be thought of as variables that are _"free"_ to take on different values or be substituted with other expressions.
+
+For example, consider the expression: `(λx.(x y)) z`. In this expression, the variable `y` is a free variable because it is not bound by any surrounding lambda abstraction. It is used within the body of the lambda abstraction `λx.(x y)`, but it is not defined or bound by it. The variable `z`, on the other hand, is a bound variable as it is the argument of the outermost lambda abstraction `(λx.(x y))`.
+
+
+### Beta Reduction:
+The beta reduction rule allows us to apply a lambda abstraction to an argument, resulting in the substitution of the argument in the function body. The general form of beta reduction is:
+
+```
+(λx.E) M ⟶ E[x := M]
 ```
 
-In the above example we define a function that applies the given
-parameter (x here) to a previously defined function `f`. The value `4` is then
-applied to this newly defined function.
+Here, `(λx.E)` represents a lambda abstraction, `M` represents an argument, and `E[x := M]` represents the expression `E` with all occurrences of variable `x` replaced by `M`. The arrow (`⟶`) indicates the reduction or simplification step.
 
-### Conventions
-Here are important conventions:
+Example:
+Let's consider an example to illustrate beta reduction. Suppose we have the following lambda abstraction:
 
-* Function application is left associative, i.e. `f g h = ((f g) h) `
-* Consecutive abstractions can be un-curried, i.e. `λx y z. t = λx. λy. λz. t`
-
-## Free and bound variables
-In λ-calculus all names are local to definitions (like in most programming
-languages). In the function λx.x we say that x is "bound" since its occurrence
-in the body of the definition is preceded by λx. A name not preceded by a λ 
-is called a "free variable." 
-
-In the expression 
-```Haskell
-(λx.x) (λy.y x)
 ```
-the `x` in the body of the first expression from the left is bound to the first
-λ. The `y` in the body of the second expression is bound to the second λ, and
-the following `x` is free.
-
-## Beta Reduction
-In its pure form, the lambda-calculus has no built-in constants or primitive
-operators—no numbers, arithmetic operations, conditionals, records, loops,
-sequencing, I/O, etc. The sole means by which terms "compute" is the application
-of functions to arguments (which themselves are functions). Each step in the 
-computation consists of rewriting an application whose left-hand component is
-an abstraction, by substituting the right-hand component for the bound variable
-in the abstraction' s body.
-
-Following Church, a term of the form `(λx.t1)t2` is called a _redex_ ("reducible
-expression”), and the operation of rewriting a redex according to the above
-rule is called beta-reduction.
-
-* **Full Beta Reduction**: Any redex may be reduced at any time. At each step
-  we pick some redex, anywhere inside the term we are evaluating, and reduce it
-* **Normal Order Beta Reduction**: The leftmost, outermost redex is always 
-  reduced first.
-* **Call By Name Beta Reduction**: This is more restrictive form of normal order
-  reduction, allowing no reductions inside abstractions.
-* **Call By Value Beta Reduction**: Only outermost redexes are reduced and where
-  a redex is reduced only when its right-hand side has already been reduced
-  to a value.
-
-## Boolean Definitions
-```Haskell
-tru = λt. λf. t;
-fls = λt. λf. f;
+(λx.x) 5
 ```
 
-``` Haskell
-tru t f = t
-fls t f = f
+To evaluate this expression, we apply the argument `5` to the function body by substituting `x` with `5`:
+
+```
+(λx.x) 5 ⟶ x[x := 5]`
 ```
 
-### tests
-`test = λl. λm. λn. l m n;`
+The resulting expression is simply `5` since the variable `x` is replaced by `5`.
 
-```Haskell
-test pred l m = pred l m
-test tru "a" "b" -- "a"
-test fls "a" "b" -- "b"
+### Eta Conversion:
+Another important evaluation rule in lambda calculus is eta conversion. It allows us to convert between equivalent lambda abstractions. The general form of eta conversion is:
+
+```
+λx.(E x) ⟶ E (if x does not occur free in E)
 ```
 
-### Reducing Test term
-```Haskell
- test tru v w
- = (λl.λm.λn.l m n) tru v w         by definition
- → (λm.λn.tru m n) v w
- → (λn.tru v n) w
- → tru v w
- = (λt.λf.t) v w                    by definition
- → (λf. v) w
- → v
+This rule states that if we have a lambda abstraction that applies its argument to another expression, and the variable `x` does not occur _free_ in that expression, we can simplify it by removing the application and using the expression directly.
+
+Example:
+Consider the following lambda abstraction:
+
+```
+λx.((λy.y) x)
 ```
 
-## Logical Ops
-`and = λb. λc.b c fls;`
+Since `x` does not occur _free_ in `(λy.y)`, we can simplify it using eta conversion:
 
-```Haskell
-and1 p q = p q fls   -- if p then q   else fls
-or1  p q = p tru q   -- if p then tru else q
-not1 p   = p fls tru -- if p then fls else tru
+```
+λx.((λy.y) x) ⟶ λx.(λy.y)
 ```
 
-## Pairs
-```Haskell
-pair = λf.λs.λb. b f s;
-fst = λp. p tru;
-snd = λp. p fls;
+The resulting expression is `λx.(λy.y)`, where the unnecessary application has been removed.
+
+These are the basic evaluation rules in lambda calculus. Beta reduction allows us to apply arguments to lambda abstractions, and eta conversion allows us to simplify lambda abstractions when certain conditions are met. These rules govern how lambda expressions are evaluated and simplified in lambda calculus.
+
+## Church Encoding 
+[Church encoding](https://en.wikipedia.org/wiki/Church_encoding) is a technique used in lambda calculus to represent various data types and operations as lambda expressions. It allows us to define and manipulate values within the confines of lambda calculus. 
+
+### Church Numerals
+Church numerals are a way of encoding natural numbers in lambda calculus. Each Church numeral represents a specific natural number using nested lambda abstractions. The Church numeral for zero (0) is defined as `λf.λx.x`, and the Church numeral for any positive number `n` is defined as `λf.λx.(f^n x)`, where `f^n` represents repeated function application n times.
+
+For example:
+
+- Church numeral for zero (0): `λf.λx.x`
+- Church numeral for one (1): `λf.λx.(f x)`
+- Church numeral for two (2): `λf.λx.(f (f x))`
+- Church numeral for three (3): `λf.λx.(f (f (f x)))`
+
+
+Using Church numerals, we can define arithmetic operations such as addition, multiplication, and predecessor functions purely in terms of lambda expressions.
+
+### Church Booleans
+
+Church booleans are another example of Church encoding. They represent the concept of `true` and `false` within lambda calculus. Church boolean `true` is defined as `λx.λy.x`, and Church boolean `false` is defined as `λx.λy.y`.
+
+Using Church booleans, we can define logical operations like AND, OR, and NOT as lambda expressions.
+
+### Church Pairs
+Church pairs are used to encode ordered pairs within lambda calculus. A Church pair is defined as a lambda expression that takes two arguments and applies them to a function. For example, a Church pair can be defined as `λx.λy.λf.(f x y)`.
+
+By using Church pairs, we can define operations such as projection to retrieve the elements of a pair and even create more complex data structures.
+
+Church encoding allows us to represent various data types, operations, and even control flow constructs purely using lambda expressions. It demonstrates the expressive power of lambda calculus and its ability to encode fundamental concepts within a functional programming paradigm.
+
+## Fixed-point combinators 
+
+Fixed-point combinators are important constructs in lambda calculus that allow the definition of recursive functions. They provide a way to express self-referential computations within the framework of lambda calculus, where direct recursion is not allowed. 
+
+In lambda calculus, direct self-reference or recursion is not possible due to the absence of named functions. Every function is defined in terms of anonymous lambda abstractions, making it challenging to define functions that refer to themselves. Fixed-point combinators offer a workaround for this limitation by providing a mechanism to express recursive computations.
+
+### Y Combinator
+The most well-known fixed-point combinator is the Y combinator. It is named after the mathematician Haskell Curry, and it allows the definition of recursive functions in lambda calculus.
+
+The Y combinator is defined as follows:
+
+```
+Y = λf.(λx.f (x x)) (λx.f (x x))
 ```
 
-`Pair v w` is a function that, when applied to a boolean value _b_, applies _b_ to _v_ and _w._
+Here, `f` represents the function we want to define recursively. By applying the Y combinator to `f`, we can create a self-referential computation.
 
-```Haskell
-pair f s b = b f s
-fst p = p tru
-snd p = p fls
+To understand how the Y combinator works, let's consider an example where we want to define a factorial function using the Y combinator:
+
+```
+factorial = Y (λf.λn.if (n == 0) then 1 else n * f (n - 1))
 ```
 
-### Reducing fst
-```Haskell
-  fst (pair v w)
-= fst ((λf.λs.λb.b f s) v w)
-→ fst ((λs.λb.b v s) w)
-→ fst (λb. b v w)
-= (λp.p tru) (λb.b v w)
-→ (λb.b v w) tru
-→ tru v w
-→ v
-```
+Here, the lambda abstraction `(λf.λn.if (n == 0) then 1 else n * f (n - 1))` represents the factorial function definition, where `f` is the recursive call. By applying the Y combinator to this function definition, we create the recursive computation.
 
-## Church Numerals
-* For representing numbers by lambda-terms
-* A number _n_ is represented by a combinator (one, two, three, etc. below)
-  that takes two arguments, _s_ and _z_, and applies _s_, _n_ times, to _z_.
-* As with booleans and pairs, this encoding makes numbers into active entities:
-  the number n is represented by a function that does something _n_ times — a 
-  kind of active unary numeral.
+Apart from the Y combinator, there are other fixed-point combinators that can be used in lambda calculus, such as the Z combinator and the U combinator. Each of these combinators has different properties and can be used to express recursion in different ways.
 
-```Haskell
-zero  = λs. λz. z;            -- applies s to z zero times
-one   = λs. λz. s z;          -- applies s to z once
-two   = λs. λz. s (s z);      -- applies s twice
-three = λs. λz. s (s (s z));  -- applies s three times
-etc.                          -- and so on...
-```
-
-### Successor
-Remember, a Church numeral _n_ is a function that applies _s_ to _z_  (n times).
-
-```Haskell
-scc = λn. λs. λz. s (n s z); -- Successor function
-```
-The term _scc_ is a combinator that takes a Church numeral n and returns another Church numeral—that is, it yields a function that takes arguments _s_ and _z_ and applies _s_ repeatedly to _z_. We get the right number of applications of _s_ to _z_ by first passing _s_ and _z_ as arguments to _n_, and then explicitly applying _s_ one more time to the result.
-
-```Haskell
-scc  n s z = s (n s z)
-scc' n s = s . n s
-```
-We can think of _successor_ function in two ways. One way, as defined above, is _applying s one more time to given number_. Another way is _to add given number _n_ to _one_._ Second approach is given below:
-
-```Haskell
-scc = λn. λs. λz. n s (s z)
-```
-
-```Haskell
-scc  n s z = n s (s z)
-```
-Let us see if _scc one_ is actually _two_:
-```Haskell
-scc one
-= scc (λs. λz. s z)                       -- by definition of one
-= (λn. λs. λz. n s (s z)) (λs. λz. s z)   -- by definition of scc
-→ (λs. λz. (λs. λz. s z) s (s z))
-→ λs. λz. (λz. s z)(s z)
-→ λs. λz. s (s z)
-= two                                     -- by definition, s applied twice
-```
-
-### Addition
-Addition of Church numerals can be performed by a term _plus_ that takes two Church numerals, _m_ and _n_, as arguments, and yields another Church numeral—i.e., a function—that accepts arguments _s_ and _z_, applies _s_ iterated _n_ times to _z_ (by passing _s_ and _z_ as arguments to _n_), and then applies _s_ iterated _m_ more times to the result:
-
-```Haskell
-plus = λm. λn. λs. λz. m s (n s z);
-```
-
-We can also think of addition in terms of successor (or increment) function.
-```Haskell
-plus m n = m incr n
-```
-Here, we apply _m_ times the incrementation to _n_. In other words, increment _n_, _m_ times.
-
-Now, we can write -
-```Haskell
-two   = plus one one
-three = plus two one
-four  = add two two
-```
-
-### Multiplication
-Multiplying n and m is adding together _m_ copies of _n_. Notice that, `plus m` adds _m_ to any given number. If we apply `add m` _n_ times to _zero_, we will have added _n_ copies of _m_.
-
-```Haskell
-times = λm. λn. m (plus n) zero;
-```
-Intuitively, having a `s.s.s. ... s` of length _m_, in order to multiply it by _n_, we should combine _n_ copies of such a chain. Or, if (m s) is a "super-successor" containing _m_ exemplars of _s_, what we need is
-```Haskell
-mul n m s z = n (m s) z
-```
-which is same as
-```Haskell
-mul n m = n . m
-```
-__Multiplication is functional composition!__
-
-### Exponentiation
-`pow n m` means _n_ raised to _m_-th power. Or, `n * n *.....* n`- multiplying _n_ by itself _m_ times.
-```Haskell
-pow n m
- = (mul n ( ... (mul n (mul n one))))  -- m times
- = m (mul n) one
-```
-
-We know that in the theory of sets, for any sets _A_ and _B_, the notation _B^A_ denotes the set of all functions from _A_ to _B_. Typically one applies the argument based on cardinality. Adding one element to _A_, permits to find _|B|_ more mappings, from the additional element to all of _B_. So, the number of mappings is multiplied by _|B|_, in agreement with : ___B^A+1 = B^A * B___. 
-```Haskell
-pow n m = m n
-```
-__exponentiation = inverse application__.
-
-### isZero
-To test whether a Church numeral is zero, we apply our numeral to a pair of terms _zz_ and _ss_ such that applying _ss_ to _zz_ one or more times yields _fls_, while not applying it at all yields _tru_.
-
-Remember zero is a function that applies _s_ to _z_ zero times - `zero = λs. λz. z` or `zero  = λs. id`.
-
-That is, we need _ss_ and _zz_ such that _zero ss zz_ is _tru_ and _fls_ for any other numeeral.
-
-```Haskell
-iszro = λm. m (λx. fls) tru;
-```
-### Predecessor
-Predecessor function is tricky! We begin with zero, and keep counting until _n_, but storing the previous number. Then when we get _n_, the previous one is its predecessor. We use __Pairs__, defined earlier, to keep two previous numbers.
-
-```Haskell
-zz = pair zero zero
-ss  = λp. pair (snd p) (plus one (snd p));
-prd = λm. fst (m ss zz);
-```
 

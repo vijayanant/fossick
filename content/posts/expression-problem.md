@@ -3,7 +3,7 @@ title       = "The Expression Problem"
 date        = 2018-11-13
 type        = "post"
 categories  = ["Programming"]
-tags        = ["fp", "Haskell", "Java", "oop"]
+tags        = ["fp", "Haskell", "Java", "OOP"]
 description = """ The expression problem is a well known problem in programming
 language theory dealing with the expressiveness of a programming language.
 Whether a language can solve the Expression Problem is a salient indicator of

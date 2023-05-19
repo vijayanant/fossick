@@ -3,7 +3,7 @@ title       = "Technical Debt"
 date        = 2022-12-28
 type        = "post"
 categories  = ["Programming"]
-tags        = ["technical debt"]
+tags        = ["technical debt", "coding", "bad code", "refactoring" ]
 description = """Consequence of Tech Debt is quicker to market now, refactoring
 effort later. Consequence of bad code is apparent speed now, legacy code and
 code rewrite later."""
