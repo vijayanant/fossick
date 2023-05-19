@@ -11,9 +11,9 @@ Test-Driven Development (TDD) is a software development approach that emphasises
 ## The Essence
 TDD can be summarised by two key principles:
 
-1. **Red**: Write a little test that doesn't work, perhaps doesn't even compile at first.
-2. **Green**: Make the test work quickly, committing whatever sins necessary in the process.
-3. **Refactor**: Eliminate all the duplication created in just getting the test to work.
+1. __Red__: Write a little test that doesn't work, perhaps doesn't even compile at first.
+2. __Green__: Make the test work quickly, committing whatever sins necessary in the process.
+3. __Refactor__: Eliminate all the duplication created in just getting the test to work.
 
 ## What is Needed
 Before diving into TDD, it's crucial to have the following prerequisites in place:
@@ -24,11 +24,11 @@ Before diving into TDD, it's crucial to have the following prerequisites in plac
 ## The Rhythm of TDD
 To successfully practice TDD, follow this iterative rhythm:
 
-* **Add a Test**: Begin by adding a new test that describes the desired behaviour or functionality.
-* **Run All Tests**: Execute all existing tests, including the new one, and observe the new test fail as expected.
-* **Make a Change**: Implement the minimum code necessary to make the failing test pass.
-* **Run All Tests**: Execute the test suite again, ensuring that all tests, including the newly added one, pass.
-* **Refactor**: Once all tests are passing, refactor the code to improve its structure, remove duplication, and enhance overall quality. During this stage, keep running the tests to ensure that all changes maintain the system's correctness.
+* __Add a Test__: Begin by adding a new test that describes the desired behaviour or functionality.
+* __Run All Tests__: Execute all existing tests, including the new one, and observe the new test fail as expected.
+* __Make a Change__: Implement the minimum code necessary to make the failing test pass.
+* __Run All Tests__: Execute the test suite again, ensuring that all tests, including the newly added one, pass.
+* __Refactor__: Once all tests are passing, refactor the code to improve its structure, remove duplication, and enhance overall quality. During this stage, keep running the tests to ensure that all changes maintain the system's correctness.
 
 ## Best Practices for TDD
 To make the most of TDD, consider the following best practices:
