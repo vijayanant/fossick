@@ -4,12 +4,16 @@ date        = 2023-03-30T13:21:32+05:30
 type        = "post"
 categories  = ["Blogging", "rant"]
 tags        = ["blogging", "starting a blog", "blogging for beginners", "personal branding"]
-description = ""
+description = """Even though I liked the idea of blogging, I didn't know why I
+should blog. What was I going to add to the world when all I know comes from
+reading others' books and blogs? I had no reason to write about topics that are
+already written about extensively by experts in that area. I didn't think I knew
+enough contribute."""
 draft       = false
 +++
 
 
-When I first thought about blogging it was daunting. Even thought I liked the
+When I first thought about blogging it was daunting. Even though I liked the
 idea of blogging, I didn't know why I should blog. What was I going to add to
 the world when all I know comes from reading other's books and blogs? I had no
 reason to write about topics that are already written about extensively by
@@ -21,6 +25,10 @@ that moment. It was a 'blog' in the sense that it was on the web. Few of the
 'notes', I felt, were better than the others. I shared them with few friends.
 They liked it and encouraged me to start a 'blog'. Even though I was not sure
 they convinced me that there was nothing to lose. That's how I started to write.
+
+Blogging isn't for everyone. Tons of amazing developers don't have blogs or
+personal websites at all. I write because it's fun for me and it helps me
+organize my thoughts.
 
 This post is for anyone who is still thinking why they should start blogging.
 
@@ -91,5 +99,3 @@ that interest you. Whether it's fashion, cooking, travel, or personal
 development, there's an audience out there for every type of content. By
 starting a blog and sharing your unique perspectives and experiences, you can
 create valuable content that resonates with your audience.
-
-
